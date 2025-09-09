@@ -76,37 +76,37 @@ Discarded input sections
  .ARM.exidx     0x00000000       0x10 C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
  .ARM.attributes
                 0x00000000       0x20 C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
- .text          0x00000000        0x0 build/system_stm32f4xx.o
- .data          0x00000000        0x0 build/system_stm32f4xx.o
- .bss           0x00000000        0x0 build/system_stm32f4xx.o
+ .text          0x00000000        0x0 Build/system_stm32f4xx.o
+ .data          0x00000000        0x0 Build/system_stm32f4xx.o
+ .bss           0x00000000        0x0 Build/system_stm32f4xx.o
  .text.SystemInit
-                0x00000000       0x14 build/system_stm32f4xx.o
+                0x00000000       0x14 Build/system_stm32f4xx.o
  .text.SystemCoreClockUpdate
-                0x00000000       0xa0 build/system_stm32f4xx.o
+                0x00000000       0xa0 Build/system_stm32f4xx.o
  .rodata.APBPrescTable
-                0x00000000        0x8 build/system_stm32f4xx.o
+                0x00000000        0x8 Build/system_stm32f4xx.o
  .rodata.AHBPrescTable
-                0x00000000       0x10 build/system_stm32f4xx.o
+                0x00000000       0x10 Build/system_stm32f4xx.o
  .data.SystemCoreClock
-                0x00000000        0x4 build/system_stm32f4xx.o
- .debug_info    0x00000000      0x5ce build/system_stm32f4xx.o
- .debug_abbrev  0x00000000      0x11b build/system_stm32f4xx.o
- .debug_loc     0x00000000      0x181 build/system_stm32f4xx.o
+                0x00000000        0x4 Build/system_stm32f4xx.o
+ .debug_info    0x00000000      0x5ce Build/system_stm32f4xx.o
+ .debug_abbrev  0x00000000      0x11b Build/system_stm32f4xx.o
+ .debug_loc     0x00000000      0x181 Build/system_stm32f4xx.o
  .debug_aranges
-                0x00000000       0x28 build/system_stm32f4xx.o
- .debug_ranges  0x00000000       0x18 build/system_stm32f4xx.o
- .debug_line    0x00000000      0x27c build/system_stm32f4xx.o
- .debug_str     0x00000000      0x364 build/system_stm32f4xx.o
- .comment       0x00000000       0x3a build/system_stm32f4xx.o
- .debug_frame   0x00000000       0x30 build/system_stm32f4xx.o
+                0x00000000       0x28 Build/system_stm32f4xx.o
+ .debug_ranges  0x00000000       0x18 Build/system_stm32f4xx.o
+ .debug_line    0x00000000      0x27c Build/system_stm32f4xx.o
+ .debug_str     0x00000000      0x364 Build/system_stm32f4xx.o
+ .comment       0x00000000       0x3a Build/system_stm32f4xx.o
+ .debug_frame   0x00000000       0x30 Build/system_stm32f4xx.o
  .ARM.attributes
-                0x00000000       0x34 build/system_stm32f4xx.o
- .text          0x00000000        0x0 build/main.o
- .data          0x00000000        0x0 build/main.o
- .bss           0x00000000        0x0 build/main.o
- .text          0x00000000       0x14 build/startup_stm32f429xx.o
- .data          0x00000000        0x0 build/startup_stm32f429xx.o
- .bss           0x00000000        0x0 build/startup_stm32f429xx.o
+                0x00000000       0x34 Build/system_stm32f4xx.o
+ .text          0x00000000        0x0 Build/main.o
+ .data          0x00000000        0x0 Build/main.o
+ .bss           0x00000000        0x0 Build/main.o
+ .text          0x00000000       0x14 Build/startup_stm32f429xx.o
+ .data          0x00000000        0x0 Build/startup_stm32f429xx.o
+ .bss           0x00000000        0x0 Build/startup_stm32f429xx.o
  .text          0x00000000        0x0 C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-atexit.o)
  .data          0x00000000        0x0 C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-atexit.o)
  .bss           0x00000000        0x0 C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-atexit.o)
@@ -434,9 +434,9 @@ Linker script and memory map
 LOAD C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crti.o
 LOAD C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 LOAD C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
-LOAD build/system_stm32f4xx.o
-LOAD build/main.o
-LOAD build/startup_stm32f429xx.o
+LOAD Build/system_stm32f4xx.o
+LOAD Build/main.o
+LOAD Build/startup_stm32f429xx.o
 LOAD C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
 LOAD C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 LOAD C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libnosys.a
@@ -457,7 +457,7 @@ LOAD C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eab
 .isr_vector     0x08000000      0x1ac
                 0x08000000                        . = ALIGN (0x4)
  *(.isr_vector)
- .isr_vector    0x08000000      0x1ac build/startup_stm32f429xx.o
+ .isr_vector    0x08000000      0x1ac Build/startup_stm32f429xx.o
                 0x08000000                g_pfnVectors
                 0x080001ac                        . = ALIGN (0x4)
 
@@ -469,14 +469,14 @@ LOAD C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eab
                 0x080001ac       0x24 C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .text.frame_dummy
                 0x080001d0       0x1c C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
- .text.main     0x080001ec        0x2 build/main.o
+ .text.main     0x080001ec        0x2 Build/main.o
                 0x080001ec                main
  *fill*         0x080001ee        0x2 
  .text.Reset_Handler
-                0x080001f0       0x4c build/startup_stm32f429xx.o
+                0x080001f0       0x4c Build/startup_stm32f429xx.o
                 0x080001f0                Reset_Handler
  .text.Default_Handler
-                0x0800023c        0x2 build/startup_stm32f429xx.o
+                0x0800023c        0x2 Build/startup_stm32f429xx.o
                 0x0800023c                RTC_Alarm_IRQHandler
                 0x0800023c                HASH_RNG_IRQHandler
                 0x0800023c                EXTI2_IRQHandler
@@ -704,14 +704,14 @@ LOAD C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eab
  .ARM.attributes
                 0x00000022       0x34 C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .ARM.attributes
-                0x00000056       0x34 build/main.o
+                0x00000056       0x34 Build/main.o
  .ARM.attributes
-                0x0000008a       0x21 build/startup_stm32f429xx.o
+                0x0000008a       0x21 Build/startup_stm32f429xx.o
  .ARM.attributes
                 0x000000ab       0x34 C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
  .ARM.attributes
                 0x000000df       0x22 C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtn.o
-OUTPUT(build/LABORATORY_PRACTICE.elf elf32-littlearm)
+OUTPUT(Build/LABORATORY_PRACTICE.elf elf32-littlearm)
 LOAD linker stubs
 LOAD C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a
 LOAD C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
@@ -720,148 +720,148 @@ LOAD C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eab
 .comment        0x00000000       0x39
  .comment       0x00000000       0x39 C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
                                  0x3a (size before relaxing)
- .comment       0x00000039       0x3a build/main.o
+ .comment       0x00000039       0x3a Build/main.o
  .comment       0x00000039       0x3a C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
 
 .debug_info     0x00000000       0x7b
- .debug_info    0x00000000       0x4b build/main.o
- .debug_info    0x0000004b       0x30 build/startup_stm32f429xx.o
+ .debug_info    0x00000000       0x4b Build/main.o
+ .debug_info    0x0000004b       0x30 Build/startup_stm32f429xx.o
 
 .debug_abbrev   0x00000000       0x5a
- .debug_abbrev  0x00000000       0x3d build/main.o
- .debug_abbrev  0x0000003d       0x1d build/startup_stm32f429xx.o
+ .debug_abbrev  0x00000000       0x3d Build/main.o
+ .debug_abbrev  0x0000003d       0x1d Build/startup_stm32f429xx.o
 
 .debug_aranges  0x00000000       0x48
  .debug_aranges
-                0x00000000       0x20 build/main.o
+                0x00000000       0x20 Build/main.o
  .debug_aranges
-                0x00000020       0x28 build/startup_stm32f429xx.o
+                0x00000020       0x28 Build/startup_stm32f429xx.o
 
 .debug_ranges   0x00000000       0x30
- .debug_ranges  0x00000000       0x10 build/main.o
- .debug_ranges  0x00000010       0x20 build/startup_stm32f429xx.o
+ .debug_ranges  0x00000000       0x10 Build/main.o
+ .debug_ranges  0x00000010       0x20 Build/startup_stm32f429xx.o
 
 .debug_line     0x00000000       0xba
- .debug_line    0x00000000       0x48 build/main.o
- .debug_line    0x00000048       0x72 build/startup_stm32f429xx.o
+ .debug_line    0x00000000       0x48 Build/main.o
+ .debug_line    0x00000048       0x72 Build/startup_stm32f429xx.o
 
 .debug_str      0x00000000      0x107
- .debug_str     0x00000000      0x107 build/main.o
+ .debug_str     0x00000000      0x107 Build/main.o
                                  0xd5 (size before relaxing)
- .debug_str     0x00000107       0x57 build/startup_stm32f429xx.o
+ .debug_str     0x00000107       0x57 Build/startup_stm32f429xx.o
 
 .debug_frame    0x00000000       0x20
- .debug_frame   0x00000000       0x20 build/main.o
+ .debug_frame   0x00000000       0x20 Build/main.o
 
 Cross Reference Table
 
 Symbol                                            File
-ADC_IRQHandler                                    build/startup_stm32f429xx.o
-AHBPrescTable                                     build/system_stm32f4xx.o
-APBPrescTable                                     build/system_stm32f4xx.o
-BusFault_Handler                                  build/startup_stm32f429xx.o
-CAN1_RX0_IRQHandler                               build/startup_stm32f429xx.o
-CAN1_RX1_IRQHandler                               build/startup_stm32f429xx.o
-CAN1_SCE_IRQHandler                               build/startup_stm32f429xx.o
-CAN1_TX_IRQHandler                                build/startup_stm32f429xx.o
-CAN2_RX0_IRQHandler                               build/startup_stm32f429xx.o
-CAN2_RX1_IRQHandler                               build/startup_stm32f429xx.o
-CAN2_SCE_IRQHandler                               build/startup_stm32f429xx.o
-CAN2_TX_IRQHandler                                build/startup_stm32f429xx.o
-DCMI_IRQHandler                                   build/startup_stm32f429xx.o
-DMA1_Stream0_IRQHandler                           build/startup_stm32f429xx.o
-DMA1_Stream1_IRQHandler                           build/startup_stm32f429xx.o
-DMA1_Stream2_IRQHandler                           build/startup_stm32f429xx.o
-DMA1_Stream3_IRQHandler                           build/startup_stm32f429xx.o
-DMA1_Stream4_IRQHandler                           build/startup_stm32f429xx.o
-DMA1_Stream5_IRQHandler                           build/startup_stm32f429xx.o
-DMA1_Stream6_IRQHandler                           build/startup_stm32f429xx.o
-DMA1_Stream7_IRQHandler                           build/startup_stm32f429xx.o
-DMA2D_IRQHandler                                  build/startup_stm32f429xx.o
-DMA2_Stream0_IRQHandler                           build/startup_stm32f429xx.o
-DMA2_Stream1_IRQHandler                           build/startup_stm32f429xx.o
-DMA2_Stream2_IRQHandler                           build/startup_stm32f429xx.o
-DMA2_Stream3_IRQHandler                           build/startup_stm32f429xx.o
-DMA2_Stream4_IRQHandler                           build/startup_stm32f429xx.o
-DMA2_Stream5_IRQHandler                           build/startup_stm32f429xx.o
-DMA2_Stream6_IRQHandler                           build/startup_stm32f429xx.o
-DMA2_Stream7_IRQHandler                           build/startup_stm32f429xx.o
-DebugMon_Handler                                  build/startup_stm32f429xx.o
-Default_Handler                                   build/startup_stm32f429xx.o
-ETH_IRQHandler                                    build/startup_stm32f429xx.o
-ETH_WKUP_IRQHandler                               build/startup_stm32f429xx.o
-EXTI0_IRQHandler                                  build/startup_stm32f429xx.o
-EXTI15_10_IRQHandler                              build/startup_stm32f429xx.o
-EXTI1_IRQHandler                                  build/startup_stm32f429xx.o
-EXTI2_IRQHandler                                  build/startup_stm32f429xx.o
-EXTI3_IRQHandler                                  build/startup_stm32f429xx.o
-EXTI4_IRQHandler                                  build/startup_stm32f429xx.o
-EXTI9_5_IRQHandler                                build/startup_stm32f429xx.o
-FLASH_IRQHandler                                  build/startup_stm32f429xx.o
-FMC_IRQHandler                                    build/startup_stm32f429xx.o
-FPU_IRQHandler                                    build/startup_stm32f429xx.o
-HASH_RNG_IRQHandler                               build/startup_stm32f429xx.o
-HardFault_Handler                                 build/startup_stm32f429xx.o
-I2C1_ER_IRQHandler                                build/startup_stm32f429xx.o
-I2C1_EV_IRQHandler                                build/startup_stm32f429xx.o
-I2C2_ER_IRQHandler                                build/startup_stm32f429xx.o
-I2C2_EV_IRQHandler                                build/startup_stm32f429xx.o
-I2C3_ER_IRQHandler                                build/startup_stm32f429xx.o
-I2C3_EV_IRQHandler                                build/startup_stm32f429xx.o
-LTDC_ER_IRQHandler                                build/startup_stm32f429xx.o
-LTDC_IRQHandler                                   build/startup_stm32f429xx.o
-MemManage_Handler                                 build/startup_stm32f429xx.o
-NMI_Handler                                       build/startup_stm32f429xx.o
-OTG_FS_IRQHandler                                 build/startup_stm32f429xx.o
-OTG_FS_WKUP_IRQHandler                            build/startup_stm32f429xx.o
-OTG_HS_EP1_IN_IRQHandler                          build/startup_stm32f429xx.o
-OTG_HS_EP1_OUT_IRQHandler                         build/startup_stm32f429xx.o
-OTG_HS_IRQHandler                                 build/startup_stm32f429xx.o
-OTG_HS_WKUP_IRQHandler                            build/startup_stm32f429xx.o
-PVD_IRQHandler                                    build/startup_stm32f429xx.o
-PendSV_Handler                                    build/startup_stm32f429xx.o
-RCC_IRQHandler                                    build/startup_stm32f429xx.o
-RTC_Alarm_IRQHandler                              build/startup_stm32f429xx.o
-RTC_WKUP_IRQHandler                               build/startup_stm32f429xx.o
-Reset_Handler                                     build/startup_stm32f429xx.o
-SAI1_IRQHandler                                   build/startup_stm32f429xx.o
-SDIO_IRQHandler                                   build/startup_stm32f429xx.o
-SPI1_IRQHandler                                   build/startup_stm32f429xx.o
-SPI2_IRQHandler                                   build/startup_stm32f429xx.o
-SPI3_IRQHandler                                   build/startup_stm32f429xx.o
-SPI4_IRQHandler                                   build/startup_stm32f429xx.o
-SPI5_IRQHandler                                   build/startup_stm32f429xx.o
-SPI6_IRQHandler                                   build/startup_stm32f429xx.o
-SVC_Handler                                       build/startup_stm32f429xx.o
-SysTick_Handler                                   build/startup_stm32f429xx.o
-SystemCoreClock                                   build/system_stm32f4xx.o
-SystemCoreClockUpdate                             build/system_stm32f4xx.o
-SystemInit                                        build/system_stm32f4xx.o
-TAMP_STAMP_IRQHandler                             build/startup_stm32f429xx.o
-TIM1_BRK_TIM9_IRQHandler                          build/startup_stm32f429xx.o
-TIM1_CC_IRQHandler                                build/startup_stm32f429xx.o
-TIM1_TRG_COM_TIM11_IRQHandler                     build/startup_stm32f429xx.o
-TIM1_UP_TIM10_IRQHandler                          build/startup_stm32f429xx.o
-TIM2_IRQHandler                                   build/startup_stm32f429xx.o
-TIM3_IRQHandler                                   build/startup_stm32f429xx.o
-TIM4_IRQHandler                                   build/startup_stm32f429xx.o
-TIM5_IRQHandler                                   build/startup_stm32f429xx.o
-TIM6_DAC_IRQHandler                               build/startup_stm32f429xx.o
-TIM7_IRQHandler                                   build/startup_stm32f429xx.o
-TIM8_BRK_TIM12_IRQHandler                         build/startup_stm32f429xx.o
-TIM8_CC_IRQHandler                                build/startup_stm32f429xx.o
-TIM8_TRG_COM_TIM14_IRQHandler                     build/startup_stm32f429xx.o
-TIM8_UP_TIM13_IRQHandler                          build/startup_stm32f429xx.o
-UART4_IRQHandler                                  build/startup_stm32f429xx.o
-UART5_IRQHandler                                  build/startup_stm32f429xx.o
-UART7_IRQHandler                                  build/startup_stm32f429xx.o
-UART8_IRQHandler                                  build/startup_stm32f429xx.o
-USART1_IRQHandler                                 build/startup_stm32f429xx.o
-USART2_IRQHandler                                 build/startup_stm32f429xx.o
-USART3_IRQHandler                                 build/startup_stm32f429xx.o
-USART6_IRQHandler                                 build/startup_stm32f429xx.o
-UsageFault_Handler                                build/startup_stm32f429xx.o
-WWDG_IRQHandler                                   build/startup_stm32f429xx.o
+ADC_IRQHandler                                    Build/startup_stm32f429xx.o
+AHBPrescTable                                     Build/system_stm32f4xx.o
+APBPrescTable                                     Build/system_stm32f4xx.o
+BusFault_Handler                                  Build/startup_stm32f429xx.o
+CAN1_RX0_IRQHandler                               Build/startup_stm32f429xx.o
+CAN1_RX1_IRQHandler                               Build/startup_stm32f429xx.o
+CAN1_SCE_IRQHandler                               Build/startup_stm32f429xx.o
+CAN1_TX_IRQHandler                                Build/startup_stm32f429xx.o
+CAN2_RX0_IRQHandler                               Build/startup_stm32f429xx.o
+CAN2_RX1_IRQHandler                               Build/startup_stm32f429xx.o
+CAN2_SCE_IRQHandler                               Build/startup_stm32f429xx.o
+CAN2_TX_IRQHandler                                Build/startup_stm32f429xx.o
+DCMI_IRQHandler                                   Build/startup_stm32f429xx.o
+DMA1_Stream0_IRQHandler                           Build/startup_stm32f429xx.o
+DMA1_Stream1_IRQHandler                           Build/startup_stm32f429xx.o
+DMA1_Stream2_IRQHandler                           Build/startup_stm32f429xx.o
+DMA1_Stream3_IRQHandler                           Build/startup_stm32f429xx.o
+DMA1_Stream4_IRQHandler                           Build/startup_stm32f429xx.o
+DMA1_Stream5_IRQHandler                           Build/startup_stm32f429xx.o
+DMA1_Stream6_IRQHandler                           Build/startup_stm32f429xx.o
+DMA1_Stream7_IRQHandler                           Build/startup_stm32f429xx.o
+DMA2D_IRQHandler                                  Build/startup_stm32f429xx.o
+DMA2_Stream0_IRQHandler                           Build/startup_stm32f429xx.o
+DMA2_Stream1_IRQHandler                           Build/startup_stm32f429xx.o
+DMA2_Stream2_IRQHandler                           Build/startup_stm32f429xx.o
+DMA2_Stream3_IRQHandler                           Build/startup_stm32f429xx.o
+DMA2_Stream4_IRQHandler                           Build/startup_stm32f429xx.o
+DMA2_Stream5_IRQHandler                           Build/startup_stm32f429xx.o
+DMA2_Stream6_IRQHandler                           Build/startup_stm32f429xx.o
+DMA2_Stream7_IRQHandler                           Build/startup_stm32f429xx.o
+DebugMon_Handler                                  Build/startup_stm32f429xx.o
+Default_Handler                                   Build/startup_stm32f429xx.o
+ETH_IRQHandler                                    Build/startup_stm32f429xx.o
+ETH_WKUP_IRQHandler                               Build/startup_stm32f429xx.o
+EXTI0_IRQHandler                                  Build/startup_stm32f429xx.o
+EXTI15_10_IRQHandler                              Build/startup_stm32f429xx.o
+EXTI1_IRQHandler                                  Build/startup_stm32f429xx.o
+EXTI2_IRQHandler                                  Build/startup_stm32f429xx.o
+EXTI3_IRQHandler                                  Build/startup_stm32f429xx.o
+EXTI4_IRQHandler                                  Build/startup_stm32f429xx.o
+EXTI9_5_IRQHandler                                Build/startup_stm32f429xx.o
+FLASH_IRQHandler                                  Build/startup_stm32f429xx.o
+FMC_IRQHandler                                    Build/startup_stm32f429xx.o
+FPU_IRQHandler                                    Build/startup_stm32f429xx.o
+HASH_RNG_IRQHandler                               Build/startup_stm32f429xx.o
+HardFault_Handler                                 Build/startup_stm32f429xx.o
+I2C1_ER_IRQHandler                                Build/startup_stm32f429xx.o
+I2C1_EV_IRQHandler                                Build/startup_stm32f429xx.o
+I2C2_ER_IRQHandler                                Build/startup_stm32f429xx.o
+I2C2_EV_IRQHandler                                Build/startup_stm32f429xx.o
+I2C3_ER_IRQHandler                                Build/startup_stm32f429xx.o
+I2C3_EV_IRQHandler                                Build/startup_stm32f429xx.o
+LTDC_ER_IRQHandler                                Build/startup_stm32f429xx.o
+LTDC_IRQHandler                                   Build/startup_stm32f429xx.o
+MemManage_Handler                                 Build/startup_stm32f429xx.o
+NMI_Handler                                       Build/startup_stm32f429xx.o
+OTG_FS_IRQHandler                                 Build/startup_stm32f429xx.o
+OTG_FS_WKUP_IRQHandler                            Build/startup_stm32f429xx.o
+OTG_HS_EP1_IN_IRQHandler                          Build/startup_stm32f429xx.o
+OTG_HS_EP1_OUT_IRQHandler                         Build/startup_stm32f429xx.o
+OTG_HS_IRQHandler                                 Build/startup_stm32f429xx.o
+OTG_HS_WKUP_IRQHandler                            Build/startup_stm32f429xx.o
+PVD_IRQHandler                                    Build/startup_stm32f429xx.o
+PendSV_Handler                                    Build/startup_stm32f429xx.o
+RCC_IRQHandler                                    Build/startup_stm32f429xx.o
+RTC_Alarm_IRQHandler                              Build/startup_stm32f429xx.o
+RTC_WKUP_IRQHandler                               Build/startup_stm32f429xx.o
+Reset_Handler                                     Build/startup_stm32f429xx.o
+SAI1_IRQHandler                                   Build/startup_stm32f429xx.o
+SDIO_IRQHandler                                   Build/startup_stm32f429xx.o
+SPI1_IRQHandler                                   Build/startup_stm32f429xx.o
+SPI2_IRQHandler                                   Build/startup_stm32f429xx.o
+SPI3_IRQHandler                                   Build/startup_stm32f429xx.o
+SPI4_IRQHandler                                   Build/startup_stm32f429xx.o
+SPI5_IRQHandler                                   Build/startup_stm32f429xx.o
+SPI6_IRQHandler                                   Build/startup_stm32f429xx.o
+SVC_Handler                                       Build/startup_stm32f429xx.o
+SysTick_Handler                                   Build/startup_stm32f429xx.o
+SystemCoreClock                                   Build/system_stm32f4xx.o
+SystemCoreClockUpdate                             Build/system_stm32f4xx.o
+SystemInit                                        Build/system_stm32f4xx.o
+TAMP_STAMP_IRQHandler                             Build/startup_stm32f429xx.o
+TIM1_BRK_TIM9_IRQHandler                          Build/startup_stm32f429xx.o
+TIM1_CC_IRQHandler                                Build/startup_stm32f429xx.o
+TIM1_TRG_COM_TIM11_IRQHandler                     Build/startup_stm32f429xx.o
+TIM1_UP_TIM10_IRQHandler                          Build/startup_stm32f429xx.o
+TIM2_IRQHandler                                   Build/startup_stm32f429xx.o
+TIM3_IRQHandler                                   Build/startup_stm32f429xx.o
+TIM4_IRQHandler                                   Build/startup_stm32f429xx.o
+TIM5_IRQHandler                                   Build/startup_stm32f429xx.o
+TIM6_DAC_IRQHandler                               Build/startup_stm32f429xx.o
+TIM7_IRQHandler                                   Build/startup_stm32f429xx.o
+TIM8_BRK_TIM12_IRQHandler                         Build/startup_stm32f429xx.o
+TIM8_CC_IRQHandler                                Build/startup_stm32f429xx.o
+TIM8_TRG_COM_TIM14_IRQHandler                     Build/startup_stm32f429xx.o
+TIM8_UP_TIM13_IRQHandler                          Build/startup_stm32f429xx.o
+UART4_IRQHandler                                  Build/startup_stm32f429xx.o
+UART5_IRQHandler                                  Build/startup_stm32f429xx.o
+UART7_IRQHandler                                  Build/startup_stm32f429xx.o
+UART8_IRQHandler                                  Build/startup_stm32f429xx.o
+USART1_IRQHandler                                 Build/startup_stm32f429xx.o
+USART2_IRQHandler                                 Build/startup_stm32f429xx.o
+USART3_IRQHandler                                 Build/startup_stm32f429xx.o
+USART6_IRQHandler                                 Build/startup_stm32f429xx.o
+UsageFault_Handler                                Build/startup_stm32f429xx.o
+WWDG_IRQHandler                                   Build/startup_stm32f429xx.o
 __atexit                                          C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-__call_atexit.o)
                                                   C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-__atexit.o)
 __atexit0                                         C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-__atexit.o)
@@ -884,7 +884,7 @@ __init_array_start                                C:/Tools/GCC/xpack-arm-none-ea
 __libc_fini_array                                 C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fini.o)
                                                   C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
 __libc_init_array                                 C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
-                                                  build/startup_stm32f429xx.o
+                                                  Build/startup_stm32f429xx.o
                                                   C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
 __lock___arc4random_mutex                         C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
 __lock___at_quick_exit_mutex                      C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
@@ -959,9 +959,9 @@ _close                                            C:/Tools/GCC/xpack-arm-none-ea
                                                   C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-closer.o)
 _close_r                                          C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-closer.o)
                                                   C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o)
-_ebss                                             build/startup_stm32f429xx.o
-_edata                                            build/startup_stm32f429xx.o
-_estack                                           build/startup_stm32f429xx.o
+_ebss                                             Build/startup_stm32f429xx.o
+_edata                                            Build/startup_stm32f429xx.o
+_estack                                           Build/startup_stm32f429xx.o
 _exit                                             C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libnosys.a(_exit.o)
                                                   C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-exit.o)
 _fflush_r                                         C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fflush.o)
@@ -998,9 +998,9 @@ _sbrk                                             C:/Tools/GCC/xpack-arm-none-ea
                                                   C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
 _sbrk_r                                           C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
                                                   C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
-_sbss                                             build/startup_stm32f429xx.o
-_sdata                                            build/startup_stm32f429xx.o
-_sidata                                           build/startup_stm32f429xx.o
+_sbss                                             Build/startup_stm32f429xx.o
+_sdata                                            Build/startup_stm32f429xx.o
+_sidata                                           Build/startup_stm32f429xx.o
 _stack_init                                       C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
 _start                                            C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
 _write                                            C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libnosys.a(write.o)
@@ -1023,10 +1023,10 @@ errno                                             C:/Tools/GCC/xpack-arm-none-ea
 exit                                              C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-exit.o)
                                                   C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
 fflush                                            C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fflush.o)
-g_pfnVectors                                      build/startup_stm32f429xx.o
+g_pfnVectors                                      Build/startup_stm32f429xx.o
 hardware_init_hook                                C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
-main                                              build/main.o
-                                                  build/startup_stm32f429xx.o
+main                                              Build/main.o
+                                                  Build/startup_stm32f429xx.o
                                                   C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
 malloc                                            C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-__atexit.o)
 memset                                            C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
