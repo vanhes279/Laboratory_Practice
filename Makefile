@@ -13,7 +13,7 @@
 ######################################
 # target
 ######################################
-TARGET = LABORATORY_PRACTICE
+TARGET = Laboratory_Practice-1
 
 
 ######################################
@@ -29,7 +29,7 @@ OPT = -Og
 # paths
 #######################################
 # Build path
-BUILD_DIR = Build
+BUILD_DIR = 1
 
 ######################################
 # source
@@ -37,7 +37,7 @@ BUILD_DIR = Build
 # C sources
 C_SOURCES =  \
 CMSIS/Devices/STM32F4xx/Src/system_stm32f4xx.c \
-Core/Src/main.c \
+Core/Src/main.c
 
 
 # ASM sources

@@ -1,0 +1,136 @@
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccJCMWdX.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Core/Src/main.c"
+  20              		.section	.text.main,"ax",%progbits
+  21              		.align	1
+  22              		.global	main
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	main:
+  28              	.LFB0:
+   1:Core/Src/main.c **** #include <stdint.h>
+   2:Core/Src/main.c **** 
+   3:Core/Src/main.c **** int main(void)
+   4:Core/Src/main.c **** {
+  29              		.loc 1 4 1 view -0
+  30              		.cfi_startproc
+  31              		@ Volatile: function does not return.
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+   5:Core/Src/main.c ****     *(uint32_t *)(0x40023800UL + 0x30UL) |= 0x06;
+  35              		.loc 1 5 5 view .LVU1
+  36 0000 194A     		ldr	r2, .L6
+  37 0002 D2F83038 		ldr	r3, [r2, #2096]
+  38              		.loc 1 5 42 is_stmt 0 view .LVU2
+  39 0006 43F00603 		orr	r3, r3, #6
+  40 000a C2F83038 		str	r3, [r2, #2096]
+   6:Core/Src/main.c ****     *(uint32_t *)(0x40020400UL + 0x00UL) |= 0x4000; // включение режима работы
+  41              		.loc 1 6 5 is_stmt 1 view .LVU3
+  42 000e 174B     		ldr	r3, .L6+4
+  43 0010 D3F80024 		ldr	r2, [r3, #1024]
+  44              		.loc 1 6 42 is_stmt 0 view .LVU4
+  45 0014 42F48042 		orr	r2, r2, #16384
+  46 0018 C3F80024 		str	r2, [r3, #1024]
+   7:Core/Src/main.c ****     *(uint32_t *)(0x40020400UL + 0x04UL) = 0x00;    // зануление режимов работ
+  47              		.loc 1 7 5 is_stmt 1 view .LVU5
+  48              		.loc 1 7 42 is_stmt 0 view .LVU6
+  49 001c 0022     		movs	r2, #0
+  50 001e C3F80424 		str	r2, [r3, #1028]
+   8:Core/Src/main.c ****     *(uint32_t *)(0x40020400UL + 0x08UL) |= 0x4000; // настройка регистра OSPEED �
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccJCMWdX.s 			page 2
+
+
+  51              		.loc 1 8 5 is_stmt 1 view .LVU7
+  52 0022 D3F80824 		ldr	r2, [r3, #1032]
+  53              		.loc 1 8 42 is_stmt 0 view .LVU8
+  54 0026 42F48042 		orr	r2, r2, #16384
+  55 002a C3F80824 		str	r2, [r3, #1032]
+   9:Core/Src/main.c ****     *(uint32_t*)(0x40020400UL + 0x0CUL) |= 0x00; //Отключение PU/PD резисторов 
+  56              		.loc 1 9 5 is_stmt 1 view .LVU9
+  10:Core/Src/main.c ****     *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x80;
+  57              		.loc 1 10 5 view .LVU10
+  58 002e D3F81824 		ldr	r2, [r3, #1048]
+  59              		.loc 1 10 42 is_stmt 0 view .LVU11
+  60 0032 42F08002 		orr	r2, r2, #128
+  61 0036 C3F81824 		str	r2, [r3, #1048]
+  62 003a 06E0     		b	.L2
+  63              	.L5:
+  11:Core/Src/main.c ****     
+  12:Core/Src/main.c ****     while (1)
+  13:Core/Src/main.c ****     {
+  14:Core/Src/main.c ****           if ((*(uint32_t *)(0x40020800UL + 0x10UL) & 0x2000UL) != 0 ){
+  15:Core/Src/main.c ****                 *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x800000;
+  64              		.loc 1 15 17 is_stmt 1 view .LVU12
+  65 003c 0B4A     		ldr	r2, .L6+4
+  66 003e D2F81834 		ldr	r3, [r2, #1048]
+  67              		.loc 1 15 54 is_stmt 0 view .LVU13
+  68 0042 43F40003 		orr	r3, r3, #8388608
+  69 0046 C2F81834 		str	r3, [r2, #1048]
+  70              	.L2:
+  12:Core/Src/main.c ****     {
+  71              		.loc 1 12 5 is_stmt 1 view .LVU14
+  14:Core/Src/main.c ****                 *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x800000;
+  72              		.loc 1 14 11 view .LVU15
+  14:Core/Src/main.c ****                 *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x800000;
+  73              		.loc 1 14 16 is_stmt 0 view .LVU16
+  74 004a 084B     		ldr	r3, .L6+4
+  75 004c D3F81038 		ldr	r3, [r3, #2064]
+  14:Core/Src/main.c ****                 *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x800000;
+  76              		.loc 1 14 14 view .LVU17
+  77 0050 13F4005F 		tst	r3, #8192
+  78 0054 F2D1     		bne	.L5
+  16:Core/Src/main.c ****             }
+  17:Core/Src/main.c ****         else{
+  18:Core/Src/main.c ****             *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x80;
+  79              		.loc 1 18 13 is_stmt 1 view .LVU18
+  80 0056 054A     		ldr	r2, .L6+4
+  81 0058 D2F81834 		ldr	r3, [r2, #1048]
+  82              		.loc 1 18 50 is_stmt 0 view .LVU19
+  83 005c 43F08003 		orr	r3, r3, #128
+  84 0060 C2F81834 		str	r3, [r2, #1048]
+  85 0064 F1E7     		b	.L2
+  86              	.L7:
+  87 0066 00BF     		.align	2
+  88              	.L6:
+  89 0068 00300240 		.word	1073885184
+  90 006c 00000240 		.word	1073872896
+  91              		.cfi_endproc
+  92              	.LFE0:
+  94              		.text
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccJCMWdX.s 			page 3
+
+
+  95              	.Letext0:
+  96              		.file 2 "C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_ty
+  97              		.file 3 "C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccJCMWdX.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Bebra\AppData\Local\Temp\ccJCMWdX.s:21     .text.main:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccJCMWdX.s:27     .text.main:00000000 main
+C:\Users\Bebra\AppData\Local\Temp\ccJCMWdX.s:89     .text.main:00000068 $d
+
+NO UNDEFINED SYMBOLS
