@@ -1,21 +1,26 @@
+#include "../Inc/init.h"
+#include "../Src/init.c"
 #include <stdint.h>
+
 
 int main(void)
 {
-    *(uint32_t *)(0x40023800UL + 0x30UL) |= 0x06;
-    *(uint32_t *)(0x40020400UL + 0x00UL) |= 0x4000; // включение режима работы пина PB7
-    *(uint32_t *)(0x40020400UL + 0x04UL) = 0x00;    // зануление режимов работы вывода, регистр
-    *(uint32_t *)(0x40020400UL + 0x08UL) |= 0x4000; // настройка регистра OSPEED скорости (скорость средняя)
-    *(uint32_t*)(0x40020400UL + 0x0CUL) |= 0x00; //Отключение PU/PD резисторов для 7-го пина GPIOB
-    
-    
+    GPIO_init_With_Myself_Macros ();
+    GPIO_init_With_Myself_Macros2 ();
     while (1)
     {
-          if ((*(uint32_t *)(0x40020800UL + 0x10UL) & 0x2000UL) != 0 ){
-                *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x80;
-            }
-        else{
-            *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x800000;
-        }    
+        
+       
+       
+        if (BIT_READ(GPIOC_IDR, GPIO_PIN_13))
+        {
+            BIT_SET(GPIOB_BSRR, GPIO_PIN_SET_7);   
+            BIT_SET(GPIOB_BSRR, GPIO_PIN_RESET_14);   
+        }
+        else
+        {
+            BIT_SET(GPIOB_BSRR, GPIO_PIN_SET_14);
+            BIT_SET(GPIOB_BSRR, GPIO_PIN_RESET_7);
+        }
     }
 }
