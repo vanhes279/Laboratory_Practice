@@ -29,6 +29,6 @@ void GPIO_init_led_pb0_green (void)
 void GPIO_button_input(void)
 {
     //PС12
-    CLEAR_BIT(GPIOС->MODER, GPIO_MODER_MODE9_0);
-    CLEAR_BIT(GPIOС->PUPDR, GPIO_PUPDR_PUPDR9_0);
+    CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE9_0);
+    CLEAR_BIT(GPIOC->PUPDR, GPIO_PUPDR_PUPDR9_0);
 }

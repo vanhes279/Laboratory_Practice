@@ -46,7 +46,6 @@ int main(void)
         led_count = (led_count % 3) + 1;
         UpdateLEDs();
        }
-       
     }
 }
 

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 1
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 1
   40              	.LBB2:
   41              		.loc 1 16 10 view .LVU3
   42              	.LVL0:
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 2
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 2
 
 
   43              		.loc 1 16 18 is_stmt 0 view .LVU4
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 1
   81 0030 83FB0103 		smull	r0, r3, r3, r1
   82 0034 A3EBE173 		sub	r3, r3, r1, asr #31
   83 0038 03EB4303 		add	r3, r3, r3, lsl #1
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 3
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 3
 
 
   84 003c CB1A     		subs	r3, r1, r3
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 1
  127 0068 00040240 		.word	1073873920
  128 006c 00000000 		.word	led_count
  129 0070 00000000 		.word	current_led_indx
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 4
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 4
 
 
  130 0074 56555555 		.word	1431655766
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 1
  180 0018 D3F80024 		ldr	r2, [r3, #1024]
  181              		.loc 2 8 38 is_stmt 0 view .LVU33
  182 001c 42F48042 		orr	r2, r2, #16384
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 5
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 5
 
 
  183 0020 C3F80024 		str	r2, [r3, #1024]
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 1
  230              		.loc 2 17 5 view .LVU44
   18:Core/Src/../Src/init.c ****     BIT_SET(GPIOB_OSPEEDR, GPIO_PIN_MED_14);
  231              		.loc 2 18 5 view .LVU45
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 6
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 6
 
 
  232 001c D3F80824 		ldr	r2, [r3, #1032]
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 1
  280 0022 9A60     		str	r2, [r3, #8]
   27:Core/Src/../Src/init.c ****    SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR0);
  281              		.loc 2 27 4 view .LVU53
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 7
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 7
 
 
  282 0024 9A69     		ldr	r2, [r3, #24]
@@ -389,14 +389,14 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 1
  306              		@ args = 0, pretend = 0, frame = 0
  307              		@ frame_needed = 0, uses_anonymous_args = 0
  308              		@ link register save eliminated.
-  31:Core/Src/../Src/init.c ****     //PB9
-  32:Core/Src/../Src/init.c ****     CLEAR_BIT(GPIOB->MODER, GPIO_MODER_MODE9_0);
+  31:Core/Src/../Src/init.c ****     //PС12
+  32:Core/Src/../Src/init.c ****     CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE9_0);
  309              		.loc 2 32 5 view .LVU56
  310 0000 044B     		ldr	r3, .L21
  311 0002 1A68     		ldr	r2, [r3]
  312 0004 22F48022 		bic	r2, r2, #262144
  313 0008 1A60     		str	r2, [r3]
-  33:Core/Src/../Src/init.c ****     CLEAR_BIT(GPIOB->PUPDR, GPIO_PUPDR_PUPDR9_0);
+  33:Core/Src/../Src/init.c ****     CLEAR_BIT(GPIOC->PUPDR, GPIO_PUPDR_PUPDR9_0);
  314              		.loc 2 33 5 view .LVU57
  315 000a DA68     		ldr	r2, [r3, #12]
  316 000c 22F48022 		bic	r2, r2, #262144
@@ -407,7 +407,7 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 1
  320              	.L22:
  321              		.align	2
  322              	.L21:
- 323 0014 00040240 		.word	1073873920
+ 323 0014 00080240 		.word	1073874944
  324              		.cfi_endproc
  325              	.LFE134:
  327              		.section	.text.main,"ax",%progbits
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 1
  332              		.thumb_func
  334              	main:
  335              	.LFB135:
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 8
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 8
 
 
   11:Core/Src/main.c ****     void UpdateLEDs(void)
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 1
   45:Core/Src/main.c ****        {
   46:Core/Src/main.c ****         led_count = (led_count % 3) + 1;
  376              		.loc 1 46 9 is_stmt 1 view .LVU72
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 9
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 9
 
 
  377              		.loc 1 46 37 is_stmt 0 view .LVU73
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 1
  430              	led_count:
  431 0000 00       		.space	1
  432              		.global	current_led_indx
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 10
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 10
 
 
  433              		.section	.bss.current_led_indx,"aw",%nobits
@@ -549,36 +549,36 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 1
  440              		.file 3 "C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_ty
  441              		.file 4 "C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
  442              		.file 5 "Core/Src/../Inc/../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s 			page 11
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:21     .text.UpdateLEDs.0:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:26     .text.UpdateLEDs.0:00000000 UpdateLEDs.0
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:127    .text.UpdateLEDs.0:00000068 $d
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:430    .bss.led_count:00000000 led_count
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:436    .bss.current_led_indx:00000000 current_led_indx
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:135    .text.GPIO_init__Memory:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:141    .text.GPIO_init__Memory:00000000 GPIO_init__Memory
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:155    .text.GPIO_init_led_pb7_blue:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:161    .text.GPIO_init_led_pb7_blue:00000000 GPIO_init_led_pb7_blue
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:200    .text.GPIO_init_led_pb7_blue:00000040 $d
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:206    .text.GPIO_init_led_pb14_red:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:212    .text.GPIO_init_led_pb14_red:00000000 GPIO_init_led_pb14_red
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:244    .text.GPIO_init_led_pb14_red:00000038 $d
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:250    .text.GPIO_init_led_pb0_green:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:256    .text.GPIO_init_led_pb0_green:00000000 GPIO_init_led_pb0_green
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:290    .text.GPIO_init_led_pb0_green:00000030 $d
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:296    .text.GPIO_button_input:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:302    .text.GPIO_button_input:00000000 GPIO_button_input
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:323    .text.GPIO_button_input:00000014 $d
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:328    .text.main:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:334    .text.main:00000000 main
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:412    .text.main:00000064 $d
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:424    .bss.led_index:00000000 led_index
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:425    .bss.led_index:00000000 $d
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:431    .bss.led_count:00000000 $d
-C:\Users\Bebra\AppData\Local\Temp\ccYUmoOc.s:437    .bss.current_led_indx:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:21     .text.UpdateLEDs.0:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:26     .text.UpdateLEDs.0:00000000 UpdateLEDs.0
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:127    .text.UpdateLEDs.0:00000068 $d
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:430    .bss.led_count:00000000 led_count
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:436    .bss.current_led_indx:00000000 current_led_indx
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:135    .text.GPIO_init__Memory:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:141    .text.GPIO_init__Memory:00000000 GPIO_init__Memory
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:155    .text.GPIO_init_led_pb7_blue:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:161    .text.GPIO_init_led_pb7_blue:00000000 GPIO_init_led_pb7_blue
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:200    .text.GPIO_init_led_pb7_blue:00000040 $d
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:206    .text.GPIO_init_led_pb14_red:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:212    .text.GPIO_init_led_pb14_red:00000000 GPIO_init_led_pb14_red
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:244    .text.GPIO_init_led_pb14_red:00000038 $d
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:250    .text.GPIO_init_led_pb0_green:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:256    .text.GPIO_init_led_pb0_green:00000000 GPIO_init_led_pb0_green
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:290    .text.GPIO_init_led_pb0_green:00000030 $d
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:296    .text.GPIO_button_input:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:302    .text.GPIO_button_input:00000000 GPIO_button_input
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:323    .text.GPIO_button_input:00000014 $d
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:328    .text.main:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:334    .text.main:00000000 main
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:412    .text.main:00000064 $d
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:424    .bss.led_index:00000000 led_index
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:425    .bss.led_index:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:431    .bss.led_count:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:437    .bss.current_led_indx:00000000 $d
 
 NO UNDEFINED SYMBOLS
