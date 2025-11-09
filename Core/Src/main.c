@@ -3,9 +3,10 @@
 #include <stdint.h>
 
 
-
+uint8_t flag1 =0;
+uint8_t flag2 =0;
 uint8_t current_led_indx = 0;
-uint8_t led_count = 0;
+uint8_t led_count = 1;
 uint8_t led_index = 0;
 int main(void)
 {
@@ -38,13 +39,23 @@ int main(void)
     {
        if (BIT_READ(GPIOC_IDR, GPIO_PIN_13))
        {
+        flag1 = 1;
         current_led_indx = (current_led_indx + 1) % 3;
         UpdateLEDs();
        }
+       else
+       {
+        flag1 = 0;
+       }
        if (BIT_READ(GPIOC_IDR, GPIO_PIN_12))
        {
+        flag2 = 1;
         led_count = (led_count % 3) + 1;
         UpdateLEDs();
+       }
+       else
+       {
+        flag2 = 0;
        }
     }
 }
