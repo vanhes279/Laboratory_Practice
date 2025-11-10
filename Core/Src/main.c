@@ -5,15 +5,15 @@
 
 uint8_t flag1 =0;
 uint8_t flag2 =0;
-uint8_t current_led_indx = 0;
-uint8_t led_count = 1;
-uint8_t led_index = 1;
+uint8_t current_led_indx = 2;
+uint8_t led_count = 0;
+uint8_t led_index = 0;
 int main(void)
 {
     void UpdateLEDs(void)
     {
         SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR0 |GPIO_BSRR_BR7 | GPIO_BSRR_BR14 );
-
+        
     for (uint8_t i = 0; i <= led_count; i++) 
         {
         uint8_t led_index = ((current_led_indx + i) % 3);
@@ -43,6 +43,9 @@ int main(void)
        {
         flag1 = 1;
         current_led_indx = (current_led_indx + 1) % 3;
+        if(led_count == 2){
+            SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR0 |GPIO_BSRR_BR7 | GPIO_BSRR_BR14 );
+            for(volatile uint32_t i = 0; i < 100000; i++){}}
         UpdateLEDs();
         for(volatile uint32_t i = 0; i < 1000000; i++);
        }
@@ -57,6 +60,7 @@ int main(void)
        
     
         UpdateLEDs();
+    
        for(volatile uint32_t i = 0; i < 1000000; i++);
        }
        else
