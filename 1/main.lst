@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 1
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -32,155 +32,158 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 1
    3:Core/Src/main.c **** #include <stdint.h>
    4:Core/Src/main.c **** 
    5:Core/Src/main.c **** 
-   6:Core/Src/main.c **** 
-   7:Core/Src/main.c **** uint8_t current_led_indx = 0;
-   8:Core/Src/main.c **** uint8_t led_count = 0;
-   9:Core/Src/main.c **** uint8_t led_index = 0;
-  10:Core/Src/main.c **** int main(void)
-  11:Core/Src/main.c **** {
-  12:Core/Src/main.c ****     void UpdateLEDs(void)
-  13:Core/Src/main.c ****     {
-  28              		.loc 1 13 5 view -0
+   6:Core/Src/main.c **** uint8_t flag1 =0;
+   7:Core/Src/main.c **** uint8_t flag2 =0;
+   8:Core/Src/main.c **** uint8_t current_led_indx = 0;
+   9:Core/Src/main.c **** uint8_t led_count = 1;
+  10:Core/Src/main.c **** uint8_t led_index = 1;
+  11:Core/Src/main.c **** int main(void)
+  12:Core/Src/main.c **** {
+  13:Core/Src/main.c ****     void UpdateLEDs(void)
+  14:Core/Src/main.c ****     {
+  28              		.loc 1 14 5 view -0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
-  14:Core/Src/main.c ****         SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR0 |GPIO_BSRR_BR7 | GPIO_BSRR_BR14 );
-  33              		.loc 1 14 9 view .LVU1
+  15:Core/Src/main.c ****         SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR0 |GPIO_BSRR_BR7 | GPIO_BSRR_BR14 );
+  33              		.loc 1 15 9 view .LVU1
   34 0000 194A     		ldr	r2, .L8
   35 0002 9369     		ldr	r3, [r2, #24]
   36 0004 43F08143 		orr	r3, r3, #1082130432
   37 0008 43F48033 		orr	r3, r3, #65536
   38 000c 9361     		str	r3, [r2, #24]
-  15:Core/Src/main.c **** 
-  16:Core/Src/main.c ****     for (uint8_t i = 0; i < led_count; i++) 
-  39              		.loc 1 16 5 view .LVU2
+  16:Core/Src/main.c **** 
+  17:Core/Src/main.c ****     for (uint8_t i = 0; i <= led_count; i++) 
+  39              		.loc 1 17 5 view .LVU2
   40              	.LBB2:
-  41              		.loc 1 16 10 view .LVU3
+  41              		.loc 1 17 10 view .LVU3
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s 			page 2
+
+
   42              	.LVL0:
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 2
-
-
-  43              		.loc 1 16 18 is_stmt 0 view .LVU4
+  43              		.loc 1 17 18 is_stmt 0 view .LVU4
   44 000e 0022     		movs	r2, #0
-  45              		.loc 1 16 5 view .LVU5
+  45              		.loc 1 17 5 view .LVU5
   46 0010 06E0     		b	.L2
   47              	.LVL1:
   48              	.L3:
   49              	.LBB3:
-  17:Core/Src/main.c ****         {
-  18:Core/Src/main.c ****         uint8_t led_index = (current_led_indx + i) % 3;
-  19:Core/Src/main.c ****         switch (led_index) 
-  20:Core/Src/main.c ****             {
-  21:Core/Src/main.c ****             case 0:
-  22:Core/Src/main.c ****                 SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS0);  // PB0
-  23:Core/Src/main.c ****                 break;
-  24:Core/Src/main.c ****             case 1:
-  25:Core/Src/main.c ****                 SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS7);  // PB7
-  50              		.loc 1 25 17 is_stmt 1 view .LVU6
+  18:Core/Src/main.c ****         {
+  19:Core/Src/main.c ****         uint8_t led_index = ((current_led_indx + i) % 3);
+  20:Core/Src/main.c ****         switch (led_index) 
+  21:Core/Src/main.c ****             {
+  22:Core/Src/main.c ****             case 0:
+  23:Core/Src/main.c ****                 SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS0);  // PB0
+  24:Core/Src/main.c ****                 break;
+  25:Core/Src/main.c ****             case 1:
+  26:Core/Src/main.c ****                 SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS7);  // PB7
+  50              		.loc 1 26 17 is_stmt 1 view .LVU6
   51 0012 1549     		ldr	r1, .L8
   52 0014 8B69     		ldr	r3, [r1, #24]
   53              	.LVL2:
-  54              		.loc 1 25 17 is_stmt 0 view .LVU7
+  54              		.loc 1 26 17 is_stmt 0 view .LVU7
   55 0016 43F08003 		orr	r3, r3, #128
   56 001a 8B61     		str	r3, [r1, #24]
   57              	.LVL3:
-  26:Core/Src/main.c ****                 break;
-  58              		.loc 1 26 17 is_stmt 1 view .LVU8
+  27:Core/Src/main.c ****                 break;
+  58              		.loc 1 27 17 is_stmt 1 view .LVU8
   59              	.L5:
   60              	.LBE3:
-  16:Core/Src/main.c ****         {
-  61              		.loc 1 16 41 discriminator 2 view .LVU9
+  17:Core/Src/main.c ****         {
+  61              		.loc 1 17 42 discriminator 2 view .LVU9
   62 001c 0132     		adds	r2, r2, #1
   63              	.LVL4:
-  16:Core/Src/main.c ****         {
-  64              		.loc 1 16 41 is_stmt 0 discriminator 2 view .LVU10
+  17:Core/Src/main.c ****         {
+  64              		.loc 1 17 42 is_stmt 0 discriminator 2 view .LVU10
   65 001e D2B2     		uxtb	r2, r2
   66              	.LVL5:
   67              	.L2:
-  16:Core/Src/main.c ****         {
-  68              		.loc 1 16 27 is_stmt 1 discriminator 1 view .LVU11
+  17:Core/Src/main.c ****         {
+  68              		.loc 1 17 27 is_stmt 1 discriminator 1 view .LVU11
   69 0020 124B     		ldr	r3, .L8+4
   70 0022 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
   71 0024 9342     		cmp	r3, r2
-  72 0026 1DD9     		bls	.L7
+  72 0026 1DD3     		bcc	.L7
   73              	.LBB4:
-  18:Core/Src/main.c ****         switch (led_index) 
-  74              		.loc 1 18 9 view .LVU12
-  18:Core/Src/main.c ****         switch (led_index) 
-  75              		.loc 1 18 47 is_stmt 0 view .LVU13
+  19:Core/Src/main.c ****         switch (led_index) 
+  74              		.loc 1 19 9 view .LVU12
+  19:Core/Src/main.c ****         switch (led_index) 
+  75              		.loc 1 19 48 is_stmt 0 view .LVU13
   76 0028 114B     		ldr	r3, .L8+8
   77 002a 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
   78 002c 1144     		add	r1, r1, r2
-  18:Core/Src/main.c ****         switch (led_index) 
-  79              		.loc 1 18 52 view .LVU14
+  19:Core/Src/main.c ****         switch (led_index) 
+  79              		.loc 1 19 53 view .LVU14
   80 002e 114B     		ldr	r3, .L8+12
   81 0030 83FB0103 		smull	r0, r3, r3, r1
   82 0034 A3EBE173 		sub	r3, r3, r1, asr #31
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s 			page 3
+
+
   83 0038 03EB4303 		add	r3, r3, r3, lsl #1
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 3
-
-
   84 003c CB1A     		subs	r3, r1, r3
   85              	.LVL6:
-  19:Core/Src/main.c ****             {
-  86              		.loc 1 19 9 is_stmt 1 view .LVU15
+  20:Core/Src/main.c ****             {
+  86              		.loc 1 20 9 is_stmt 1 view .LVU15
   87 003e DBB2     		uxtb	r3, r3
-  19:Core/Src/main.c ****             {
-  88              		.loc 1 19 9 is_stmt 0 view .LVU16
+  20:Core/Src/main.c ****             {
+  88              		.loc 1 20 9 is_stmt 0 view .LVU16
   89 0040 012B     		cmp	r3, #1
   90 0042 E6D0     		beq	.L3
   91 0044 022B     		cmp	r3, #2
   92 0046 07D0     		beq	.L4
   93 0048 002B     		cmp	r3, #0
   94 004a E7D1     		bne	.L5
-  22:Core/Src/main.c ****                 break;
-  95              		.loc 1 22 17 is_stmt 1 view .LVU17
+  23:Core/Src/main.c ****                 break;
+  95              		.loc 1 23 17 is_stmt 1 view .LVU17
   96 004c 0649     		ldr	r1, .L8
   97 004e 8B69     		ldr	r3, [r1, #24]
   98              	.LVL7:
-  22:Core/Src/main.c ****                 break;
-  99              		.loc 1 22 17 is_stmt 0 view .LVU18
+  23:Core/Src/main.c ****                 break;
+  99              		.loc 1 23 17 is_stmt 0 view .LVU18
  100 0050 43F00103 		orr	r3, r3, #1
  101 0054 8B61     		str	r3, [r1, #24]
  102              	.LVL8:
-  23:Core/Src/main.c ****             case 1:
- 103              		.loc 1 23 17 is_stmt 1 view .LVU19
+  24:Core/Src/main.c ****             case 1:
+ 103              		.loc 1 24 17 is_stmt 1 view .LVU19
  104 0056 E1E7     		b	.L5
  105              	.LVL9:
  106              	.L4:
-  27:Core/Src/main.c ****             case 2:
-  28:Core/Src/main.c ****                 SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14); // PB14
- 107              		.loc 1 28 17 view .LVU20
+  28:Core/Src/main.c ****             case 2:
+  29:Core/Src/main.c ****                 SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14); // PB14
+ 107              		.loc 1 29 17 view .LVU20
  108 0058 0349     		ldr	r1, .L8
  109 005a 8B69     		ldr	r3, [r1, #24]
  110              	.LVL10:
- 111              		.loc 1 28 17 is_stmt 0 view .LVU21
+ 111              		.loc 1 29 17 is_stmt 0 view .LVU21
  112 005c 43F48043 		orr	r3, r3, #16384
  113 0060 8B61     		str	r3, [r1, #24]
  114              	.LVL11:
-  29:Core/Src/main.c ****                 break;
- 115              		.loc 1 29 17 is_stmt 1 view .LVU22
+  30:Core/Src/main.c ****                 break;
+ 115              		.loc 1 30 17 is_stmt 1 view .LVU22
  116 0062 DBE7     		b	.L5
  117              	.LVL12:
  118              	.L7:
- 119              		.loc 1 29 17 is_stmt 0 view .LVU23
+ 119              		.loc 1 30 17 is_stmt 0 view .LVU23
  120              	.LBE4:
  121              	.LBE2:
-  30:Core/Src/main.c ****             }
-  31:Core/Src/main.c ****         }
-  32:Core/Src/main.c ****     }
- 122              		.loc 1 32 5 view .LVU24
+  31:Core/Src/main.c **** 
+  32:Core/Src/main.c ****             
+  33:Core/Src/main.c ****             }
+  34:Core/Src/main.c ****         }
+  35:Core/Src/main.c ****     }
+ 122              		.loc 1 35 5 view .LVU24
  123 0064 7047     		bx	lr
  124              	.L9:
  125 0066 00BF     		.align	2
  126              	.L8:
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s 			page 4
+
+
  127 0068 00040240 		.word	1073873920
  128 006c 00000000 		.word	led_count
  129 0070 00000000 		.word	current_led_indx
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 4
-
-
  130 0074 56555555 		.word	1431655766
  131              		.cfi_endproc
  132              	.LFE136:
@@ -235,12 +238,12 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 1
    8:Core/Src/../Src/init.c **** *(uint32_t *)(0x40020400UL + 0x00UL) |= 0x4000UL;
  178              		.loc 2 8 1 is_stmt 1 view .LVU32
  179 0016 0B4B     		ldr	r3, .L12+4
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s 			page 5
+
+
  180 0018 D3F80024 		ldr	r2, [r3, #1024]
  181              		.loc 2 8 38 is_stmt 0 view .LVU33
  182 001c 42F48042 		orr	r2, r2, #16384
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 5
-
-
  183 0020 C3F80024 		str	r2, [r3, #1024]
    9:Core/Src/../Src/init.c **** *(uint32_t *)(0x40020400UL + 0x04UL) |= 0x00UL;
  184              		.loc 2 9 1 is_stmt 1 view .LVU34
@@ -295,12 +298,12 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 1
  228 0014 42F08052 		orr	r2, r2, #268435456
  229 0018 C3F80024 		str	r2, [r3, #1024]
   17:Core/Src/../Src/init.c ****     BIT_SET(GPIOB_OTYPER, GPIO_OFF);
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s 			page 6
+
+
  230              		.loc 2 17 5 view .LVU44
   18:Core/Src/../Src/init.c ****     BIT_SET(GPIOB_OSPEEDR, GPIO_PIN_MED_14);
  231              		.loc 2 18 5 view .LVU45
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 6
-
-
  232 001c D3F80824 		ldr	r2, [r3, #1032]
  233 0020 42F08052 		orr	r2, r2, #268435456
  234 0024 C3F80824 		str	r2, [r3, #1032]
@@ -355,12 +358,12 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 1
  277              		.loc 2 26 4 view .LVU52
  278 001c 9A68     		ldr	r2, [r3, #8]
  279 001e 42F00102 		orr	r2, r2, #1
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s 			page 7
+
+
  280 0022 9A60     		str	r2, [r3, #8]
   27:Core/Src/../Src/init.c ****    SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR0);
  281              		.loc 2 27 4 view .LVU53
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 7
-
-
  282 0024 9A69     		ldr	r2, [r3, #24]
  283 0026 42F48032 		orr	r2, r2, #65536
  284 002a 9A61     		str	r2, [r3, #24]
@@ -390,18 +393,18 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 1
  307              		@ frame_needed = 0, uses_anonymous_args = 0
  308              		@ link register save eliminated.
   31:Core/Src/../Src/init.c ****     //PС12
-  32:Core/Src/../Src/init.c ****     CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE9_0);
+  32:Core/Src/../Src/init.c ****     CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8_0);
  309              		.loc 2 32 5 view .LVU56
  310 0000 044B     		ldr	r3, .L21
  311 0002 1A68     		ldr	r2, [r3]
- 312 0004 22F48022 		bic	r2, r2, #262144
+ 312 0004 22F48032 		bic	r2, r2, #65536
  313 0008 1A60     		str	r2, [r3]
-  33:Core/Src/../Src/init.c ****     CLEAR_BIT(GPIOC->PUPDR, GPIO_PUPDR_PUPDR9_0);
+  33:Core/Src/../Src/init.c ****     CLEAR_BIT(GPIOC->PUPDR, GPIO_PUPDR_PUPDR8_0);
  314              		.loc 2 33 5 view .LVU57
  315 000a DA68     		ldr	r2, [r3, #12]
- 316 000c 22F48022 		bic	r2, r2, #262144
+ 316 000c 22F48032 		bic	r2, r2, #65536
  317 0010 DA60     		str	r2, [r3, #12]
-  34:Core/Src/../Src/init.c **** }...
+  34:Core/Src/../Src/init.c **** }
  318              		.loc 2 34 1 is_stmt 0 view .LVU58
  319 0012 7047     		bx	lr
  320              	.L22:
@@ -415,170 +418,276 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 1
  329              		.global	main
  330              		.syntax unified
  331              		.thumb
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s 			page 8
+
+
  332              		.thumb_func
  334              	main:
  335              	.LFB135:
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 8
-
-
-  11:Core/Src/main.c ****     void UpdateLEDs(void)
- 336              		.loc 1 11 1 is_stmt 1 view -0
+  12:Core/Src/main.c ****     void UpdateLEDs(void)
+ 336              		.loc 1 12 1 is_stmt 1 view -0
  337              		.cfi_startproc
  338              		@ Volatile: function does not return.
- 339              		@ args = 0, pretend = 0, frame = 0
+ 339              		@ args = 0, pretend = 0, frame = 8
  340              		@ frame_needed = 0, uses_anonymous_args = 0
- 341 0000 08B5     		push	{r3, lr}
+ 341 0000 00B5     		push	{lr}
  342              	.LCFI0:
- 343              		.cfi_def_cfa_offset 8
- 344              		.cfi_offset 3, -8
- 345              		.cfi_offset 14, -4
-  12:Core/Src/main.c ****     {
- 346              		.loc 1 12 5 view .LVU60
-  33:Core/Src/main.c ****  GPIO_init_led_pb7_blue ();
- 347              		.loc 1 33 2 view .LVU61
- 348 0002 FFF7FEFF 		bl	GPIO_init_led_pb7_blue
- 349              	.LVL13:
-  34:Core/Src/main.c ****  GPIO_init_led_pb14_red ();
- 350              		.loc 1 34 2 view .LVU62
- 351 0006 FFF7FEFF 		bl	GPIO_init_led_pb14_red
- 352              	.LVL14:
-  35:Core/Src/main.c ****  GPIO_init_led_pb0_green ();
- 353              		.loc 1 35 2 view .LVU63
- 354 000a FFF7FEFF 		bl	GPIO_init_led_pb0_green
- 355              	.LVL15:
-  36:Core/Src/main.c ****  GPIO_button_input();
- 356              		.loc 1 36 2 view .LVU64
- 357 000e FFF7FEFF 		bl	GPIO_button_input
- 358              	.LVL16:
- 359              	.L25:
-  37:Core/Src/main.c ****     while (1)
- 360              		.loc 1 37 5 view .LVU65
-  38:Core/Src/main.c ****     {
-  39:Core/Src/main.c ****        if (BIT_READ(GPIOC_IDR, GPIO_PIN_13))
- 361              		.loc 1 39 8 view .LVU66
- 362              		.loc 1 39 12 is_stmt 0 view .LVU67
- 363 0012 144B     		ldr	r3, .L29
- 364 0014 D3F81038 		ldr	r3, [r3, #2064]
- 365              		.loc 1 39 11 view .LVU68
- 366 0018 13F4005F 		tst	r3, #8192
- 367 001c 14D1     		bne	.L28
- 368              	.L24:
-  40:Core/Src/main.c ****        {
-  41:Core/Src/main.c ****         current_led_indx = (current_led_indx + 1) % 3;
-  42:Core/Src/main.c ****         UpdateLEDs();
-  43:Core/Src/main.c ****        }
-  44:Core/Src/main.c ****        if (BIT_READ(GPIOC_IDR, GPIO_PIN_12))
- 369              		.loc 1 44 8 is_stmt 1 view .LVU69
- 370              		.loc 1 44 12 is_stmt 0 view .LVU70
- 371 001e 114B     		ldr	r3, .L29
- 372 0020 D3F81038 		ldr	r3, [r3, #2064]
- 373              		.loc 1 44 11 view .LVU71
- 374 0024 13F4805F 		tst	r3, #4096
- 375 0028 F3D0     		beq	.L25
-  45:Core/Src/main.c ****        {
-  46:Core/Src/main.c ****         led_count = (led_count % 3) + 1;
- 376              		.loc 1 46 9 is_stmt 1 view .LVU72
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 9
+ 343              		.cfi_def_cfa_offset 4
+ 344              		.cfi_offset 14, -4
+ 345 0002 83B0     		sub	sp, sp, #12
+ 346              	.LCFI1:
+ 347              		.cfi_def_cfa_offset 16
+  13:Core/Src/main.c ****     {
+ 348              		.loc 1 13 5 view .LVU60
+  36:Core/Src/main.c ****  GPIO_init_led_pb7_blue ();
+ 349              		.loc 1 36 2 view .LVU61
+ 350 0004 FFF7FEFF 		bl	GPIO_init_led_pb7_blue
+ 351              	.LVL13:
+  37:Core/Src/main.c ****  GPIO_init_led_pb14_red ();
+ 352              		.loc 1 37 2 view .LVU62
+ 353 0008 FFF7FEFF 		bl	GPIO_init_led_pb14_red
+ 354              	.LVL14:
+  38:Core/Src/main.c ****  GPIO_init_led_pb0_green ();
+ 355              		.loc 1 38 2 view .LVU63
+ 356 000c FFF7FEFF 		bl	GPIO_init_led_pb0_green
+ 357              	.LVL15:
+  39:Core/Src/main.c ****  GPIO_button_input();
+ 358              		.loc 1 39 2 view .LVU64
+ 359 0010 FFF7FEFF 		bl	GPIO_button_input
+ 360              	.LVL16:
+ 361 0014 20E0     		b	.L24
+ 362              	.L34:
+  40:Core/Src/main.c ****     while (1)
+  41:Core/Src/main.c ****     {
+  42:Core/Src/main.c ****        if (BIT_READ(GPIOC_IDR, GPIO_PIN_8))
+  43:Core/Src/main.c ****        {
+  44:Core/Src/main.c ****         flag1 = 1;
+ 363              		.loc 1 44 9 view .LVU65
+ 364              		.loc 1 44 15 is_stmt 0 view .LVU66
+ 365 0016 234B     		ldr	r3, .L35
+ 366 0018 0122     		movs	r2, #1
+ 367 001a 1A70     		strb	r2, [r3]
+  45:Core/Src/main.c ****         current_led_indx = (current_led_indx + 1) % 3;
+ 368              		.loc 1 45 9 is_stmt 1 view .LVU67
+ 369              		.loc 1 45 46 is_stmt 0 view .LVU68
+ 370 001c 2249     		ldr	r1, .L35+4
+ 371 001e 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
+ 372 0020 0132     		adds	r2, r2, #1
+ 373              		.loc 1 45 51 view .LVU69
+ 374 0022 224B     		ldr	r3, .L35+8
+ 375 0024 83FB0203 		smull	r0, r3, r3, r2
+ 376 0028 03EB4303 		add	r3, r3, r3, lsl #1
+ 377 002c D31A     		subs	r3, r2, r3
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s 			page 9
 
 
- 377              		.loc 1 46 37 is_stmt 0 view .LVU73
- 378 002a 0F48     		ldr	r0, .L29+4
- 379 002c 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 380 002e 0F4A     		ldr	r2, .L29+8
- 381 0030 A2FB0312 		umull	r1, r2, r2, r3
- 382 0034 02F0FE01 		and	r1, r2, #254
- 383 0038 01EB5202 		add	r2, r1, r2, lsr #1
- 384 003c 9B1A     		subs	r3, r3, r2
- 385 003e 0133     		adds	r3, r3, #1
- 386              		.loc 1 46 19 view .LVU74
- 387 0040 0370     		strb	r3, [r0]
-  47:Core/Src/main.c ****         UpdateLEDs();
- 388              		.loc 1 47 9 is_stmt 1 view .LVU75
- 389 0042 FFF7FEFF 		bl	UpdateLEDs.0
- 390              	.LVL17:
- 391 0046 E4E7     		b	.L25
- 392              	.L28:
-  41:Core/Src/main.c ****         UpdateLEDs();
- 393              		.loc 1 41 9 view .LVU76
-  41:Core/Src/main.c ****         UpdateLEDs();
- 394              		.loc 1 41 46 is_stmt 0 view .LVU77
- 395 0048 0949     		ldr	r1, .L29+12
- 396 004a 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
- 397 004c 0132     		adds	r2, r2, #1
-  41:Core/Src/main.c ****         UpdateLEDs();
- 398              		.loc 1 41 51 view .LVU78
- 399 004e 094B     		ldr	r3, .L29+16
- 400 0050 83FB0203 		smull	r0, r3, r3, r2
- 401 0054 03EB4303 		add	r3, r3, r3, lsl #1
- 402 0058 D31A     		subs	r3, r2, r3
-  41:Core/Src/main.c ****         UpdateLEDs();
- 403              		.loc 1 41 26 view .LVU79
- 404 005a 0B70     		strb	r3, [r1]
-  42:Core/Src/main.c ****        }
- 405              		.loc 1 42 9 is_stmt 1 view .LVU80
- 406 005c FFF7FEFF 		bl	UpdateLEDs.0
- 407              	.LVL18:
- 408 0060 DDE7     		b	.L24
- 409              	.L30:
- 410 0062 00BF     		.align	2
- 411              	.L29:
- 412 0064 00000240 		.word	1073872896
- 413 0068 00000000 		.word	led_count
- 414 006c ABAAAAAA 		.word	-1431655765
- 415 0070 00000000 		.word	current_led_indx
- 416 0074 56555555 		.word	1431655766
- 417              		.cfi_endproc
- 418              	.LFE135:
- 420              		.global	led_index
- 421              		.section	.bss.led_index,"aw",%nobits
- 424              	led_index:
- 425 0000 00       		.space	1
- 426              		.global	led_count
- 427              		.section	.bss.led_count,"aw",%nobits
- 430              	led_count:
- 431 0000 00       		.space	1
- 432              		.global	current_led_indx
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 10
+ 378              		.loc 1 45 26 view .LVU70
+ 379 002e 0B70     		strb	r3, [r1]
+  46:Core/Src/main.c ****         UpdateLEDs();
+ 380              		.loc 1 46 9 is_stmt 1 view .LVU71
+ 381 0030 FFF7FEFF 		bl	UpdateLEDs.0
+ 382              	.LVL17:
+  47:Core/Src/main.c ****         for(volatile uint32_t i = 0; i < 1000000; i++);
+ 383              		.loc 1 47 9 view .LVU72
+ 384              	.LBB5:
+ 385              		.loc 1 47 13 view .LVU73
+ 386              		.loc 1 47 31 is_stmt 0 view .LVU74
+ 387 0034 0023     		movs	r3, #0
+ 388 0036 0093     		str	r3, [sp]
+ 389              		.loc 1 47 9 view .LVU75
+ 390 0038 02E0     		b	.L26
+ 391              	.L27:
+ 392              		.loc 1 47 52 is_stmt 1 discriminator 3 view .LVU76
+ 393 003a 009B     		ldr	r3, [sp]
+ 394 003c 0133     		adds	r3, r3, #1
+ 395 003e 0093     		str	r3, [sp]
+ 396              	.L26:
+ 397              		.loc 1 47 40 discriminator 1 view .LVU77
+ 398 0040 009A     		ldr	r2, [sp]
+ 399 0042 1B4B     		ldr	r3, .L35+12
+ 400 0044 9A42     		cmp	r2, r3
+ 401 0046 F8D9     		bls	.L27
+ 402 0048 0FE0     		b	.L28
+ 403              	.L31:
+ 404              	.LBE5:
+ 405              	.LBB6:
+  48:Core/Src/main.c ****        }
+  49:Core/Src/main.c ****        else
+  50:Core/Src/main.c ****        {
+  51:Core/Src/main.c ****         flag1 = 0;
+  52:Core/Src/main.c ****        }
+  53:Core/Src/main.c ****        if (BIT_READ(GPIOC_IDR, GPIO_PIN_13))
+  54:Core/Src/main.c ****        {
+  55:Core/Src/main.c ****         flag2 = 1;
+  56:Core/Src/main.c ****         led_count = ((led_count+1))%3;
+  57:Core/Src/main.c ****        
+  58:Core/Src/main.c ****     
+  59:Core/Src/main.c ****         UpdateLEDs();
+  60:Core/Src/main.c ****        for(volatile uint32_t i = 0; i < 1000000; i++);
+ 406              		.loc 1 60 51 discriminator 3 view .LVU78
+ 407 004a 019B     		ldr	r3, [sp, #4]
+ 408 004c 0133     		adds	r3, r3, #1
+ 409 004e 0193     		str	r3, [sp, #4]
+ 410              	.L30:
+ 411              		.loc 1 60 39 discriminator 1 view .LVU79
+ 412 0050 019A     		ldr	r2, [sp, #4]
+ 413 0052 174B     		ldr	r3, .L35+12
+ 414 0054 9A42     		cmp	r2, r3
+ 415 0056 F8D9     		bls	.L31
+ 416              	.L24:
+ 417              	.LBE6:
+  40:Core/Src/main.c ****     {
+ 418              		.loc 1 40 5 view .LVU80
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s 			page 10
 
 
- 433              		.section	.bss.current_led_indx,"aw",%nobits
- 436              	current_led_indx:
- 437 0000 00       		.space	1
- 438              		.text
- 439              	.Letext0:
- 440              		.file 3 "C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_ty
- 441              		.file 4 "C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
- 442              		.file 5 "Core/Src/../Inc/../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s 			page 11
+  42:Core/Src/main.c ****        {
+ 419              		.loc 1 42 8 view .LVU81
+  42:Core/Src/main.c ****        {
+ 420              		.loc 1 42 12 is_stmt 0 view .LVU82
+ 421 0058 164B     		ldr	r3, .L35+16
+ 422 005a D3F81038 		ldr	r3, [r3, #2064]
+  42:Core/Src/main.c ****        {
+ 423              		.loc 1 42 11 view .LVU83
+ 424 005e 13F4807F 		tst	r3, #256
+ 425 0062 D8D1     		bne	.L34
+  51:Core/Src/main.c ****        }
+ 426              		.loc 1 51 9 is_stmt 1 view .LVU84
+  51:Core/Src/main.c ****        }
+ 427              		.loc 1 51 15 is_stmt 0 view .LVU85
+ 428 0064 0F4B     		ldr	r3, .L35
+ 429 0066 0022     		movs	r2, #0
+ 430 0068 1A70     		strb	r2, [r3]
+ 431              	.L28:
+  53:Core/Src/main.c ****        {
+ 432              		.loc 1 53 8 is_stmt 1 view .LVU86
+  53:Core/Src/main.c ****        {
+ 433              		.loc 1 53 12 is_stmt 0 view .LVU87
+ 434 006a 124B     		ldr	r3, .L35+16
+ 435 006c D3F81038 		ldr	r3, [r3, #2064]
+  53:Core/Src/main.c ****        {
+ 436              		.loc 1 53 11 view .LVU88
+ 437 0070 13F4005F 		tst	r3, #8192
+ 438 0074 11D0     		beq	.L29
+  55:Core/Src/main.c ****         led_count = ((led_count+1))%3;
+ 439              		.loc 1 55 9 is_stmt 1 view .LVU89
+  55:Core/Src/main.c ****         led_count = ((led_count+1))%3;
+ 440              		.loc 1 55 15 is_stmt 0 view .LVU90
+ 441 0076 104B     		ldr	r3, .L35+20
+ 442 0078 0122     		movs	r2, #1
+ 443 007a 1A70     		strb	r2, [r3]
+  56:Core/Src/main.c ****        
+ 444              		.loc 1 56 9 is_stmt 1 view .LVU91
+  56:Core/Src/main.c ****        
+ 445              		.loc 1 56 32 is_stmt 0 view .LVU92
+ 446 007c 0F49     		ldr	r1, .L35+24
+ 447 007e 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
+ 448 0080 0132     		adds	r2, r2, #1
+  56:Core/Src/main.c ****        
+ 449              		.loc 1 56 36 view .LVU93
+ 450 0082 0A4B     		ldr	r3, .L35+8
+ 451 0084 83FB0203 		smull	r0, r3, r3, r2
+ 452 0088 03EB4303 		add	r3, r3, r3, lsl #1
+ 453 008c D31A     		subs	r3, r2, r3
+  56:Core/Src/main.c ****        
+ 454              		.loc 1 56 19 view .LVU94
+ 455 008e 0B70     		strb	r3, [r1]
+  59:Core/Src/main.c ****        for(volatile uint32_t i = 0; i < 1000000; i++);
+ 456              		.loc 1 59 9 is_stmt 1 view .LVU95
+ 457 0090 FFF7FEFF 		bl	UpdateLEDs.0
+ 458              	.LVL18:
+ 459              		.loc 1 60 8 view .LVU96
+ 460              	.LBB7:
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s 			page 11
+
+
+ 461              		.loc 1 60 12 view .LVU97
+ 462              		.loc 1 60 30 is_stmt 0 view .LVU98
+ 463 0094 0023     		movs	r3, #0
+ 464 0096 0193     		str	r3, [sp, #4]
+ 465              		.loc 1 60 8 view .LVU99
+ 466 0098 DAE7     		b	.L30
+ 467              	.L29:
+ 468              	.LBE7:
+  61:Core/Src/main.c ****        }
+  62:Core/Src/main.c ****        else
+  63:Core/Src/main.c ****        {
+  64:Core/Src/main.c ****         flag2 = 0;
+ 469              		.loc 1 64 9 is_stmt 1 view .LVU100
+ 470              		.loc 1 64 15 is_stmt 0 view .LVU101
+ 471 009a 074B     		ldr	r3, .L35+20
+ 472 009c 0022     		movs	r2, #0
+ 473 009e 1A70     		strb	r2, [r3]
+ 474 00a0 DAE7     		b	.L24
+ 475              	.L36:
+ 476 00a2 00BF     		.align	2
+ 477              	.L35:
+ 478 00a4 00000000 		.word	flag1
+ 479 00a8 00000000 		.word	current_led_indx
+ 480 00ac 56555555 		.word	1431655766
+ 481 00b0 3F420F00 		.word	999999
+ 482 00b4 00000240 		.word	1073872896
+ 483 00b8 00000000 		.word	flag2
+ 484 00bc 00000000 		.word	led_count
+ 485              		.cfi_endproc
+ 486              	.LFE135:
+ 488              		.global	led_index
+ 489              		.section	.data.led_index,"aw"
+ 492              	led_index:
+ 493 0000 01       		.byte	1
+ 494              		.global	led_count
+ 495              		.section	.data.led_count,"aw"
+ 498              	led_count:
+ 499 0000 01       		.byte	1
+ 500              		.global	current_led_indx
+ 501              		.section	.bss.current_led_indx,"aw",%nobits
+ 504              	current_led_indx:
+ 505 0000 00       		.space	1
+ 506              		.global	flag2
+ 507              		.section	.bss.flag2,"aw",%nobits
+ 510              	flag2:
+ 511 0000 00       		.space	1
+ 512              		.global	flag1
+ 513              		.section	.bss.flag1,"aw",%nobits
+ 516              	flag1:
+ 517 0000 00       		.space	1
+ 518              		.text
+ 519              	.Letext0:
+ 520              		.file 3 "C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_ty
+ 521              		.file 4 "C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
+ 522              		.file 5 "Core/Src/../Inc/../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:21     .text.UpdateLEDs.0:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:26     .text.UpdateLEDs.0:00000000 UpdateLEDs.0
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:127    .text.UpdateLEDs.0:00000068 $d
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:430    .bss.led_count:00000000 led_count
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:436    .bss.current_led_indx:00000000 current_led_indx
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:135    .text.GPIO_init__Memory:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:141    .text.GPIO_init__Memory:00000000 GPIO_init__Memory
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:155    .text.GPIO_init_led_pb7_blue:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:161    .text.GPIO_init_led_pb7_blue:00000000 GPIO_init_led_pb7_blue
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:200    .text.GPIO_init_led_pb7_blue:00000040 $d
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:206    .text.GPIO_init_led_pb14_red:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:212    .text.GPIO_init_led_pb14_red:00000000 GPIO_init_led_pb14_red
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:244    .text.GPIO_init_led_pb14_red:00000038 $d
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:250    .text.GPIO_init_led_pb0_green:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:256    .text.GPIO_init_led_pb0_green:00000000 GPIO_init_led_pb0_green
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:290    .text.GPIO_init_led_pb0_green:00000030 $d
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:296    .text.GPIO_button_input:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:302    .text.GPIO_button_input:00000000 GPIO_button_input
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:323    .text.GPIO_button_input:00000014 $d
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:328    .text.main:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:334    .text.main:00000000 main
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:412    .text.main:00000064 $d
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:424    .bss.led_index:00000000 led_index
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:425    .bss.led_index:00000000 $d
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:431    .bss.led_count:00000000 $d
-C:\Users\Bebra\AppData\Local\Temp\ccLcjpQ5.s:437    .bss.current_led_indx:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:21     .text.UpdateLEDs.0:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:26     .text.UpdateLEDs.0:00000000 UpdateLEDs.0
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:127    .text.UpdateLEDs.0:00000068 $d
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:498    .data.led_count:00000000 led_count
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:504    .bss.current_led_indx:00000000 current_led_indx
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:135    .text.GPIO_init__Memory:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:141    .text.GPIO_init__Memory:00000000 GPIO_init__Memory
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:155    .text.GPIO_init_led_pb7_blue:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:161    .text.GPIO_init_led_pb7_blue:00000000 GPIO_init_led_pb7_blue
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:200    .text.GPIO_init_led_pb7_blue:00000040 $d
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:206    .text.GPIO_init_led_pb14_red:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:212    .text.GPIO_init_led_pb14_red:00000000 GPIO_init_led_pb14_red
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:244    .text.GPIO_init_led_pb14_red:00000038 $d
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:250    .text.GPIO_init_led_pb0_green:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:256    .text.GPIO_init_led_pb0_green:00000000 GPIO_init_led_pb0_green
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:290    .text.GPIO_init_led_pb0_green:00000030 $d
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:296    .text.GPIO_button_input:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:302    .text.GPIO_button_input:00000000 GPIO_button_input
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:323    .text.GPIO_button_input:00000014 $d
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:328    .text.main:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:334    .text.main:00000000 main
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:478    .text.main:000000a4 $d
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:516    .bss.flag1:00000000 flag1
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:510    .bss.flag2:00000000 flag2
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:492    .data.led_index:00000000 led_index
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:505    .bss.current_led_indx:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:511    .bss.flag2:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccTNNsFc.s:517    .bss.flag1:00000000 $d
 
 NO UNDEFINED SYMBOLS

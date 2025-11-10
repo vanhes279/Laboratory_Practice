@@ -32,7 +32,7 @@ void GPIO_button_input(void);
 #define GPIO_PIN_SET_7      0x80UL
 
 #define GPIO_PIN_13         0x2000UL
-#define GPIO_PIN_12         0x1000UL
+#define GPIO_PIN_8         0x100UL
 
 #define GPIO_PIN_MED_0      0x1UL
 #define GPIO_PIN_OUT_0      0x1UL

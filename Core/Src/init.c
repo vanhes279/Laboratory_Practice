@@ -29,6 +29,15 @@ void GPIO_init_led_pb0_green (void)
 void GPIO_button_input(void)
 {
     //PС12
-    CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE9_0);
-    CLEAR_BIT(GPIOC->PUPDR, GPIO_PUPDR_PUPDR9_0);
+    CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE8_0);
+    CLEAR_BIT(GPIOC->PUPDR, GPIO_PUPDR_PUPDR8_0);
 }
+// void SysTick_Init(void)
+// {
+//     CLEAR_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk);
+//     SET_BIT(SysTick->CTRL, SysTick_CTRL_TICKINT_Msk);
+//     SET_BIT(SysTick->CTRL, SysTick_CTRL_CLKSOURCE_Msk);
+ //  MODIFY_REG(SysTick->LOAD, SysTick_LOAD_RELOAD_Msk, (180000-1) << SysTick_LOAD_RELOAD_Pos);
+//  MODIFY_REG(ysTick->VAL, SysTick_VAL_CURRENT_Msk, (180000-1) << SysTick_VAL_CURRENT_Pos);
+// SET_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk);
+// }
