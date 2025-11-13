@@ -1,7 +1,11 @@
 #include <stdint.h>
 #include "../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
 #include "stm32f4xx.h"
-
+void RCC_Ini(void);
+void GPIO_Ini(void);
+void EXTI_ITR_Ini(void);
+void SysTick_Init(void);
+/*
 void GPIO_init_CMSIS(void);
 void GPIO_init__Memory(void);
 void GPIO_init_led_pb7_blue (void);
@@ -32,7 +36,7 @@ void GPIO_button_input(void);
 #define GPIO_PIN_SET_7      0x80UL
 
 #define GPIO_PIN_13         0x2000UL
-#define GPIO_PIN_8         0x100UL
+#define GPIO_PIN_8          0x100UL
 
 #define GPIO_PIN_MED_0      0x1UL
 #define GPIO_PIN_OUT_0      0x1UL
@@ -43,3 +47,4 @@ void GPIO_button_input(void);
 
 #define BIT_SET(REG, BIT)   ((REG) |= (BIT))
 #define BIT_READ(REG, BIT)  ((REG) & (BIT))
+*/
