@@ -1,0 +1,439 @@
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"it_handlers.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Core/Src/it_handlers.c"
+  20              		.section	.text.EXTI0_IRQHandler,"ax",%progbits
+  21              		.align	1
+  22              		.global	EXTI0_IRQHandler
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	EXTI0_IRQHandler:
+  28              	.LFB130:
+   1:Core/Src/it_handlers.c **** #include "../Inc/it_handlers.h"
+   2:Core/Src/it_handlers.c **** #include <stm32f4xx.h>
+   3:Core/Src/it_handlers.c **** 
+   4:Core/Src/it_handlers.c **** extern uint8_t mode;
+   5:Core/Src/it_handlers.c **** uint32_t holdTime = 0;
+   6:Core/Src/it_handlers.c **** uint8_t btn2State = 0; 
+   7:Core/Src/it_handlers.c **** extern uint8_t BtnCount;
+   8:Core/Src/it_handlers.c **** extern uint32_t led_tick;
+   9:Core/Src/it_handlers.c **** extern uint8_t shortState;
+  10:Core/Src/it_handlers.c **** uint32_t button2PressTime = 0;
+  11:Core/Src/it_handlers.c **** uint32_t ExternalInterruptTickCount = 0;
+  12:Core/Src/it_handlers.c **** uint32_t last_button1_time_pressed = 0;
+  13:Core/Src/it_handlers.c **** uint32_t last_button2_time_pressed = 0;
+  14:Core/Src/it_handlers.c **** uint8_t button1_long_press_triggered = 0;
+  15:Core/Src/it_handlers.c **** uint8_t button2_long_press_triggered = 0;
+  16:Core/Src/it_handlers.c **** 
+  17:Core/Src/it_handlers.c **** void EXTI0_IRQHandler(void)
+  18:Core/Src/it_handlers.c **** {
+  29              		.loc 1 18 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  19:Core/Src/it_handlers.c ****     SET_BIT(EXTI->PR, EXTI_PR_PR0); 
+  34              		.loc 1 19 5 view .LVU1
+  35 0000 084A     		ldr	r2, .L3
+  36 0002 5369     		ldr	r3, [r2, #20]
+  37 0004 43F00103 		orr	r3, r3, #1
+  38 0008 5361     		str	r3, [r2, #20]
+  20:Core/Src/it_handlers.c ****     if (ExternalInterruptTickCount >= DELAY_BUTTON_FILTER)
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s 			page 2
+
+
+  39              		.loc 1 20 5 view .LVU2
+  40              		.loc 1 20 36 is_stmt 0 view .LVU3
+  41 000a 074B     		ldr	r3, .L3+4
+  42 000c 1B68     		ldr	r3, [r3]
+  43              		.loc 1 20 8 view .LVU4
+  44 000e C72B     		cmp	r3, #199
+  45 0010 06D9     		bls	.L1
+  21:Core/Src/it_handlers.c ****     {
+  22:Core/Src/it_handlers.c ****         BtnCount++;
+  46              		.loc 1 22 9 is_stmt 1 view .LVU5
+  47              		.loc 1 22 17 is_stmt 0 view .LVU6
+  48 0012 064A     		ldr	r2, .L3+8
+  49 0014 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  50 0016 0133     		adds	r3, r3, #1
+  51 0018 1370     		strb	r3, [r2]
+  23:Core/Src/it_handlers.c ****         ExternalInterruptTickCount = 0;
+  52              		.loc 1 23 9 is_stmt 1 view .LVU7
+  53              		.loc 1 23 36 is_stmt 0 view .LVU8
+  54 001a 034B     		ldr	r3, .L3+4
+  55 001c 0022     		movs	r2, #0
+  56 001e 1A60     		str	r2, [r3]
+  57              	.L1:
+  24:Core/Src/it_handlers.c ****     }
+  25:Core/Src/it_handlers.c **** }
+  58              		.loc 1 25 1 view .LVU9
+  59 0020 7047     		bx	lr
+  60              	.L4:
+  61 0022 00BF     		.align	2
+  62              	.L3:
+  63 0024 003C0140 		.word	1073822720
+  64 0028 00000000 		.word	ExternalInterruptTickCount
+  65 002c 00000000 		.word	BtnCount
+  66              		.cfi_endproc
+  67              	.LFE130:
+  69              		.section	.text.EXTI3_IRQHandler,"ax",%progbits
+  70              		.align	1
+  71              		.global	EXTI3_IRQHandler
+  72              		.syntax unified
+  73              		.thumb
+  74              		.thumb_func
+  76              	EXTI3_IRQHandler:
+  77              	.LFB131:
+  26:Core/Src/it_handlers.c **** 
+  27:Core/Src/it_handlers.c **** void EXTI3_IRQHandler(void)
+  28:Core/Src/it_handlers.c **** {
+  78              		.loc 1 28 1 is_stmt 1 view -0
+  79              		.cfi_startproc
+  80              		@ args = 0, pretend = 0, frame = 0
+  81              		@ frame_needed = 0, uses_anonymous_args = 0
+  82              		@ link register save eliminated.
+  29:Core/Src/it_handlers.c ****     if (READ_BIT(EXTI->PR, EXTI_PR_PR3)) 
+  83              		.loc 1 29 5 view .LVU11
+  84              		.loc 1 29 9 is_stmt 0 view .LVU12
+  85 0000 174B     		ldr	r3, .L9
+  86 0002 5B69     		ldr	r3, [r3, #20]
+  87              		.loc 1 29 8 view .LVU13
+  88 0004 13F0080F 		tst	r3, #8
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s 			page 3
+
+
+  89 0008 29D0     		beq	.L5
+  30:Core/Src/it_handlers.c ****     {
+  31:Core/Src/it_handlers.c ****         SET_BIT(EXTI->PR, EXTI_PR_PR3); 
+  90              		.loc 1 31 9 is_stmt 1 view .LVU14
+  91 000a 154A     		ldr	r2, .L9
+  92 000c 5369     		ldr	r3, [r2, #20]
+  93 000e 43F00803 		orr	r3, r3, #8
+  94 0012 5361     		str	r3, [r2, #20]
+  32:Core/Src/it_handlers.c ****         
+  33:Core/Src/it_handlers.c ****         if (ExternalInterruptTickCount >= DELAY_BUTTON_FILTER)
+  95              		.loc 1 33 9 view .LVU15
+  96              		.loc 1 33 40 is_stmt 0 view .LVU16
+  97 0014 134B     		ldr	r3, .L9+4
+  98 0016 1B68     		ldr	r3, [r3]
+  99              		.loc 1 33 12 view .LVU17
+ 100 0018 C72B     		cmp	r3, #199
+ 101 001a 20D9     		bls	.L5
+  34:Core/Src/it_handlers.c ****         {
+  35:Core/Src/it_handlers.c ****             if (btn2State == 0)
+ 102              		.loc 1 35 13 is_stmt 1 view .LVU18
+ 103              		.loc 1 35 27 is_stmt 0 view .LVU19
+ 104 001c 124A     		ldr	r2, .L9+8
+ 105 001e 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 106              		.loc 1 35 16 view .LVU20
+ 107 0020 42B9     		cbnz	r2, .L7
+  36:Core/Src/it_handlers.c ****             {
+  37:Core/Src/it_handlers.c ****                 button2PressTime = ExternalInterruptTickCount;
+ 108              		.loc 1 37 17 is_stmt 1 view .LVU21
+ 109              		.loc 1 37 34 is_stmt 0 view .LVU22
+ 110 0022 124A     		ldr	r2, .L9+12
+ 111 0024 1360     		str	r3, [r2]
+  38:Core/Src/it_handlers.c ****                 btn2State = 1;
+ 112              		.loc 1 38 17 is_stmt 1 view .LVU23
+ 113              		.loc 1 38 27 is_stmt 0 view .LVU24
+ 114 0026 104B     		ldr	r3, .L9+8
+ 115 0028 0122     		movs	r2, #1
+ 116 002a 1A70     		strb	r2, [r3]
+  39:Core/Src/it_handlers.c ****                 button2_long_press_triggered = 0; 
+ 117              		.loc 1 39 17 is_stmt 1 view .LVU25
+ 118              		.loc 1 39 46 is_stmt 0 view .LVU26
+ 119 002c 104B     		ldr	r3, .L9+16
+ 120 002e 0022     		movs	r2, #0
+ 121 0030 1A70     		strb	r2, [r3]
+ 122 0032 7047     		bx	lr
+ 123              	.L7:
+  40:Core/Src/it_handlers.c ****             }
+  41:Core/Src/it_handlers.c ****             else
+  42:Core/Src/it_handlers.c ****             {
+  43:Core/Src/it_handlers.c ****                 holdTime = ExternalInterruptTickCount - button2PressTime;
+ 124              		.loc 1 43 17 is_stmt 1 view .LVU27
+ 125              		.loc 1 43 55 is_stmt 0 view .LVU28
+ 126 0034 0D4A     		ldr	r2, .L9+12
+ 127 0036 1268     		ldr	r2, [r2]
+ 128 0038 9B1A     		subs	r3, r3, r2
+ 129              		.loc 1 43 26 view .LVU29
+ 130 003a 0E4A     		ldr	r2, .L9+20
+ 131 003c 1360     		str	r3, [r2]
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s 			page 4
+
+
+  44:Core/Src/it_handlers.c ****                 
+  45:Core/Src/it_handlers.c ****                 if (holdTime > 100 && holdTime <= 2000 && !button2_long_press_triggered)
+ 132              		.loc 1 45 17 is_stmt 1 view .LVU30
+ 133              		.loc 1 45 36 is_stmt 0 view .LVU31
+ 134 003e 653B     		subs	r3, r3, #101
+ 135              		.loc 1 45 20 view .LVU32
+ 136 0040 40F26B72 		movw	r2, #1899
+ 137 0044 9342     		cmp	r3, r2
+ 138 0046 05D8     		bhi	.L8
+ 139              		.loc 1 45 59 discriminator 1 view .LVU33
+ 140 0048 094B     		ldr	r3, .L9+16
+ 141 004a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 142              		.loc 1 45 56 discriminator 1 view .LVU34
+ 143 004c 13B9     		cbnz	r3, .L8
+  46:Core/Src/it_handlers.c ****                 {
+  47:Core/Src/it_handlers.c ****                     shortState = 1;
+ 144              		.loc 1 47 21 is_stmt 1 view .LVU35
+ 145              		.loc 1 47 32 is_stmt 0 view .LVU36
+ 146 004e 0A4B     		ldr	r3, .L9+24
+ 147 0050 0122     		movs	r2, #1
+ 148 0052 1A70     		strb	r2, [r3]
+ 149              	.L8:
+  48:Core/Src/it_handlers.c ****                 }
+  49:Core/Src/it_handlers.c ****                 
+  50:Core/Src/it_handlers.c ****                 btn2State = 0;
+ 150              		.loc 1 50 17 is_stmt 1 view .LVU37
+ 151              		.loc 1 50 27 is_stmt 0 view .LVU38
+ 152 0054 0023     		movs	r3, #0
+ 153 0056 044A     		ldr	r2, .L9+8
+ 154 0058 1370     		strb	r3, [r2]
+  51:Core/Src/it_handlers.c ****                 ExternalInterruptTickCount = 0;
+ 155              		.loc 1 51 17 is_stmt 1 view .LVU39
+ 156              		.loc 1 51 44 is_stmt 0 view .LVU40
+ 157 005a 024A     		ldr	r2, .L9+4
+ 158 005c 1360     		str	r3, [r2]
+ 159              	.L5:
+  52:Core/Src/it_handlers.c ****             }
+  53:Core/Src/it_handlers.c ****         }
+  54:Core/Src/it_handlers.c ****     }
+  55:Core/Src/it_handlers.c **** }
+ 160              		.loc 1 55 1 view .LVU41
+ 161 005e 7047     		bx	lr
+ 162              	.L10:
+ 163              		.align	2
+ 164              	.L9:
+ 165 0060 003C0140 		.word	1073822720
+ 166 0064 00000000 		.word	ExternalInterruptTickCount
+ 167 0068 00000000 		.word	btn2State
+ 168 006c 00000000 		.word	button2PressTime
+ 169 0070 00000000 		.word	button2_long_press_triggered
+ 170 0074 00000000 		.word	holdTime
+ 171 0078 00000000 		.word	shortState
+ 172              		.cfi_endproc
+ 173              	.LFE131:
+ 175              		.section	.text.SysTick_Handler,"ax",%progbits
+ 176              		.align	1
+ 177              		.global	SysTick_Handler
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s 			page 5
+
+
+ 178              		.syntax unified
+ 179              		.thumb
+ 180              		.thumb_func
+ 182              	SysTick_Handler:
+ 183              	.LFB132:
+  56:Core/Src/it_handlers.c **** 
+  57:Core/Src/it_handlers.c **** void SysTick_Handler(void)
+  58:Core/Src/it_handlers.c **** {
+ 184              		.loc 1 58 1 is_stmt 1 view -0
+ 185              		.cfi_startproc
+ 186              		@ args = 0, pretend = 0, frame = 0
+ 187              		@ frame_needed = 0, uses_anonymous_args = 0
+ 188              		@ link register save eliminated.
+  59:Core/Src/it_handlers.c ****     ExternalInterruptTickCount++;
+ 189              		.loc 1 59 5 view .LVU43
+ 190              		.loc 1 59 31 is_stmt 0 view .LVU44
+ 191 0000 124A     		ldr	r2, .L14
+ 192 0002 1368     		ldr	r3, [r2]
+ 193 0004 0133     		adds	r3, r3, #1
+ 194 0006 1360     		str	r3, [r2]
+  60:Core/Src/it_handlers.c ****     led_tick++; 
+ 195              		.loc 1 60 5 is_stmt 1 view .LVU45
+ 196              		.loc 1 60 13 is_stmt 0 view .LVU46
+ 197 0008 1149     		ldr	r1, .L14+4
+ 198 000a 0A68     		ldr	r2, [r1]
+ 199 000c 0132     		adds	r2, r2, #1
+ 200 000e 0A60     		str	r2, [r1]
+  61:Core/Src/it_handlers.c ****     if (btn2State == 1 && !button2_long_press_triggered)
+ 201              		.loc 1 61 5 is_stmt 1 view .LVU47
+ 202              		.loc 1 61 19 is_stmt 0 view .LVU48
+ 203 0010 104A     		ldr	r2, .L14+8
+ 204 0012 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 205              		.loc 1 61 8 view .LVU49
+ 206 0014 012A     		cmp	r2, #1
+ 207 0016 00D0     		beq	.L13
+ 208              	.L11:
+  62:Core/Src/it_handlers.c ****     {
+  63:Core/Src/it_handlers.c ****         holdTime = ExternalInterruptTickCount - button2PressTime;
+  64:Core/Src/it_handlers.c ****         if (holdTime > 2000) 
+  65:Core/Src/it_handlers.c ****         {
+  66:Core/Src/it_handlers.c ****             mode = !mode;
+  67:Core/Src/it_handlers.c ****             led_tick = 0; 
+  68:Core/Src/it_handlers.c ****             button2_long_press_triggered = 1; 
+  69:Core/Src/it_handlers.c ****         }
+  70:Core/Src/it_handlers.c ****     }
+  71:Core/Src/it_handlers.c **** }...
+ 209              		.loc 1 71 1 view .LVU50
+ 210 0018 7047     		bx	lr
+ 211              	.L13:
+  61:Core/Src/it_handlers.c ****     if (btn2State == 1 && !button2_long_press_triggered)
+ 212              		.loc 1 61 27 discriminator 1 view .LVU51
+ 213 001a 0F4A     		ldr	r2, .L14+12
+ 214 001c 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+  61:Core/Src/it_handlers.c ****     if (btn2State == 1 && !button2_long_press_triggered)
+ 215              		.loc 1 61 24 discriminator 1 view .LVU52
+ 216 001e 002A     		cmp	r2, #0
+ 217 0020 FAD1     		bne	.L11
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s 			page 6
+
+
+  63:Core/Src/it_handlers.c ****         holdTime = ExternalInterruptTickCount - button2PressTime;
+ 218              		.loc 1 63 9 is_stmt 1 view .LVU53
+  63:Core/Src/it_handlers.c ****         holdTime = ExternalInterruptTickCount - button2PressTime;
+ 219              		.loc 1 63 47 is_stmt 0 view .LVU54
+ 220 0022 0E4A     		ldr	r2, .L14+16
+ 221 0024 1268     		ldr	r2, [r2]
+ 222 0026 9B1A     		subs	r3, r3, r2
+  63:Core/Src/it_handlers.c ****         holdTime = ExternalInterruptTickCount - button2PressTime;
+ 223              		.loc 1 63 18 view .LVU55
+ 224 0028 0D4A     		ldr	r2, .L14+20
+ 225 002a 1360     		str	r3, [r2]
+  64:Core/Src/it_handlers.c ****         if (holdTime > 2000) 
+ 226              		.loc 1 64 9 is_stmt 1 view .LVU56
+  64:Core/Src/it_handlers.c ****         if (holdTime > 2000) 
+ 227              		.loc 1 64 12 is_stmt 0 view .LVU57
+ 228 002c B3F5FA6F 		cmp	r3, #2000
+ 229 0030 F2D9     		bls	.L11
+  66:Core/Src/it_handlers.c ****             mode = !mode;
+ 230              		.loc 1 66 13 is_stmt 1 view .LVU58
+  66:Core/Src/it_handlers.c ****             mode = !mode;
+ 231              		.loc 1 66 20 is_stmt 0 view .LVU59
+ 232 0032 0C4A     		ldr	r2, .L14+24
+ 233 0034 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 234 0036 B3FA83F3 		clz	r3, r3
+ 235 003a 5B09     		lsrs	r3, r3, #5
+  66:Core/Src/it_handlers.c ****             mode = !mode;
+ 236              		.loc 1 66 18 view .LVU60
+ 237 003c 1370     		strb	r3, [r2]
+  67:Core/Src/it_handlers.c ****             led_tick = 0; 
+ 238              		.loc 1 67 13 is_stmt 1 view .LVU61
+  67:Core/Src/it_handlers.c ****             led_tick = 0; 
+ 239              		.loc 1 67 22 is_stmt 0 view .LVU62
+ 240 003e 0022     		movs	r2, #0
+ 241 0040 0A60     		str	r2, [r1]
+  68:Core/Src/it_handlers.c ****             button2_long_press_triggered = 1; 
+ 242              		.loc 1 68 13 is_stmt 1 view .LVU63
+  68:Core/Src/it_handlers.c ****             button2_long_press_triggered = 1; 
+ 243              		.loc 1 68 42 is_stmt 0 view .LVU64
+ 244 0042 054B     		ldr	r3, .L14+12
+ 245 0044 0122     		movs	r2, #1
+ 246 0046 1A70     		strb	r2, [r3]
+ 247              		.loc 1 71 1 view .LVU65
+ 248 0048 E6E7     		b	.L11
+ 249              	.L15:
+ 250 004a 00BF     		.align	2
+ 251              	.L14:
+ 252 004c 00000000 		.word	ExternalInterruptTickCount
+ 253 0050 00000000 		.word	led_tick
+ 254 0054 00000000 		.word	btn2State
+ 255 0058 00000000 		.word	button2_long_press_triggered
+ 256 005c 00000000 		.word	button2PressTime
+ 257 0060 00000000 		.word	holdTime
+ 258 0064 00000000 		.word	mode
+ 259              		.cfi_endproc
+ 260              	.LFE132:
+ 262              		.global	button2_long_press_triggered
+ 263              		.section	.bss.button2_long_press_triggered,"aw",%nobits
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s 			page 7
+
+
+ 266              	button2_long_press_triggered:
+ 267 0000 00       		.space	1
+ 268              		.global	button1_long_press_triggered
+ 269              		.section	.bss.button1_long_press_triggered,"aw",%nobits
+ 272              	button1_long_press_triggered:
+ 273 0000 00       		.space	1
+ 274              		.global	last_button2_time_pressed
+ 275              		.section	.bss.last_button2_time_pressed,"aw",%nobits
+ 276              		.align	2
+ 279              	last_button2_time_pressed:
+ 280 0000 00000000 		.space	4
+ 281              		.global	last_button1_time_pressed
+ 282              		.section	.bss.last_button1_time_pressed,"aw",%nobits
+ 283              		.align	2
+ 286              	last_button1_time_pressed:
+ 287 0000 00000000 		.space	4
+ 288              		.global	ExternalInterruptTickCount
+ 289              		.section	.bss.ExternalInterruptTickCount,"aw",%nobits
+ 290              		.align	2
+ 293              	ExternalInterruptTickCount:
+ 294 0000 00000000 		.space	4
+ 295              		.global	button2PressTime
+ 296              		.section	.bss.button2PressTime,"aw",%nobits
+ 297              		.align	2
+ 300              	button2PressTime:
+ 301 0000 00000000 		.space	4
+ 302              		.global	btn2State
+ 303              		.section	.bss.btn2State,"aw",%nobits
+ 306              	btn2State:
+ 307 0000 00       		.space	1
+ 308              		.global	holdTime
+ 309              		.section	.bss.holdTime,"aw",%nobits
+ 310              		.align	2
+ 313              	holdTime:
+ 314 0000 00000000 		.space	4
+ 315              		.text
+ 316              	.Letext0:
+ 317              		.file 2 "C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_ty
+ 318              		.file 3 "C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
+ 319              		.file 4 "Core/Src/../Inc/../Inc/../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 it_handlers.c
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:21     .text.EXTI0_IRQHandler:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:27     .text.EXTI0_IRQHandler:00000000 EXTI0_IRQHandler
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:63     .text.EXTI0_IRQHandler:00000024 $d
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:293    .bss.ExternalInterruptTickCount:00000000 ExternalInterruptTickCount
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:70     .text.EXTI3_IRQHandler:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:76     .text.EXTI3_IRQHandler:00000000 EXTI3_IRQHandler
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:165    .text.EXTI3_IRQHandler:00000060 $d
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:306    .bss.btn2State:00000000 btn2State
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:300    .bss.button2PressTime:00000000 button2PressTime
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:266    .bss.button2_long_press_triggered:00000000 button2_long_press_triggered
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:313    .bss.holdTime:00000000 holdTime
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:176    .text.SysTick_Handler:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:182    .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:252    .text.SysTick_Handler:0000004c $d
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:267    .bss.button2_long_press_triggered:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:272    .bss.button1_long_press_triggered:00000000 button1_long_press_triggered
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:273    .bss.button1_long_press_triggered:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:279    .bss.last_button2_time_pressed:00000000 last_button2_time_pressed
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:276    .bss.last_button2_time_pressed:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:286    .bss.last_button1_time_pressed:00000000 last_button1_time_pressed
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:283    .bss.last_button1_time_pressed:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:290    .bss.ExternalInterruptTickCount:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:297    .bss.button2PressTime:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:307    .bss.btn2State:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccSj8Iwa.s:310    .bss.holdTime:00000000 $d
+
+UNDEFINED SYMBOLS
+BtnCount
+shortState
+led_tick
+mode

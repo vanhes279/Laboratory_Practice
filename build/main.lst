@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccFqNqsa.s 			page 1
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -20,42 +20,610 @@ ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccFqNqsa.s 			page 1
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
   19              		.file 1 "Core/Src/main.c"
-  20              		.section	.text.main,"ax",%progbits
+  20              		.section	.text.OFF,"ax",%progbits
   21              		.align	1
-  22              		.global	main
+  22              		.global	OFF
   23              		.syntax unified
   24              		.thumb
   25              		.thumb_func
-  27              	main:
-  28              	.LFB0:
-   1:Core/Src/main.c **** int main(void)
-   2:Core/Src/main.c **** {
-  29              		.loc 1 2 1 view -0
+  27              	OFF:
+  28              	.LFB130:
+   1:Core/Src/main.c **** #include "../Inc/init.h"
+   2:Core/Src/main.c **** #include "../Inc/it_handlers.h"
+   3:Core/Src/main.c **** 
+   4:Core/Src/main.c **** 
+   5:Core/Src/main.c **** uint16_t flik_list[3] = {5000, 1250, 769}; 
+   6:Core/Src/main.c **** uint8_t current_led_indx = 0;              
+   7:Core/Src/main.c **** uint8_t mode = 0;                          
+   8:Core/Src/main.c **** uint8_t BtnCount = 0;                      
+   9:Core/Src/main.c **** uint8_t shortState = 0;                    
+  10:Core/Src/main.c **** uint32_t led_tick = 0;                     
+  11:Core/Src/main.c **** uint8_t flicker_freq = 0;                  
+  12:Core/Src/main.c **** 
+  13:Core/Src/main.c **** 
+  14:Core/Src/main.c **** void OFF(void)
+  15:Core/Src/main.c **** {
+  29              		.loc 1 15 1 view -0
   30              		.cfi_startproc
-  31              		@ Volatile: function does not return.
-  32              		@ args = 0, pretend = 0, frame = 0
-  33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		@ link register save eliminated.
-  35              	.L2:
-   3:Core/Src/main.c ****     while(1)
-  36              		.loc 1 3 5 view .LVU1
-   4:Core/Src/main.c ****     {
-   5:Core/Src/main.c ****         
-   6:Core/Src/main.c ****     }
-  37              		.loc 1 6 5 view .LVU2
-   3:Core/Src/main.c ****     while(1)
-  38              		.loc 1 3 10 view .LVU3
-  39 0000 FEE7     		b	.L2
-  40              		.cfi_endproc
-  41              	.LFE0:
-  43              		.text
-  44              	.Letext0:
-ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccFqNqsa.s 			page 2
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  16:Core/Src/main.c ****     SET_BIT(GPIOE->BSRR, GPIO_BSRR_BR2 | GPIO_BSRR_BR4 | GPIO_BSRR_BR5 | GPIO_BSRR_BR6 | GPIO_BSRR_
+  34              		.loc 1 16 5 view .LVU1
+  35 0000 054A     		ldr	r2, .L2
+  36 0002 9369     		ldr	r3, [r2, #24]
+  37 0004 43F4F803 		orr	r3, r3, #8126464
+  38 0008 9361     		str	r3, [r2, #24]
+  17:Core/Src/main.c ****     SET_BIT(GPIOF->BSRR, GPIO_BSRR_BR8);
+  39              		.loc 1 17 5 view .LVU2
+  40 000a 02F58062 		add	r2, r2, #1024
+  41 000e 9369     		ldr	r3, [r2, #24]
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s 			page 2
+
+
+  42 0010 43F08073 		orr	r3, r3, #16777216
+  43 0014 9361     		str	r3, [r2, #24]
+  18:Core/Src/main.c **** }
+  44              		.loc 1 18 1 is_stmt 0 view .LVU3
+  45 0016 7047     		bx	lr
+  46              	.L3:
+  47              		.align	2
+  48              	.L2:
+  49 0018 00100240 		.word	1073876992
+  50              		.cfi_endproc
+  51              	.LFE130:
+  53              		.section	.text.UpdateLEDs,"ax",%progbits
+  54              		.align	1
+  55              		.global	UpdateLEDs
+  56              		.syntax unified
+  57              		.thumb
+  58              		.thumb_func
+  60              	UpdateLEDs:
+  61              	.LFB131:
+  19:Core/Src/main.c **** 
+  20:Core/Src/main.c **** void UpdateLEDs(void)
+  21:Core/Src/main.c **** {
+  62              		.loc 1 21 1 is_stmt 1 view -0
+  63              		.cfi_startproc
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66 0000 08B5     		push	{r3, lr}
+  67              	.LCFI0:
+  68              		.cfi_def_cfa_offset 8
+  69              		.cfi_offset 3, -8
+  70              		.cfi_offset 14, -4
+  22:Core/Src/main.c ****     OFF(); 
+  71              		.loc 1 22 5 view .LVU5
+  72 0002 FFF7FEFF 		bl	OFF
+  73              	.LVL0:
+  23:Core/Src/main.c ****     switch (current_led_indx) 
+  74              		.loc 1 23 5 view .LVU6
+  75 0006 164B     		ldr	r3, .L15
+  76 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  77 000a 052B     		cmp	r3, #5
+  78 000c 09D8     		bhi	.L4
+  79 000e DFE803F0 		tbb	[pc, r3]
+  80              	.L7:
+  81 0012 03       		.byte	(.L12-.L7)/2
+  82 0013 09       		.byte	(.L11-.L7)/2
+  83 0014 0F       		.byte	(.L10-.L7)/2
+  84 0015 15       		.byte	(.L9-.L7)/2
+  85 0016 1B       		.byte	(.L8-.L7)/2
+  86 0017 21       		.byte	(.L6-.L7)/2
+  87              		.p2align 1
+  88              	.L12:
+  24:Core/Src/main.c ****     {
+  25:Core/Src/main.c ****         case 0:
+  26:Core/Src/main.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS2);  // PE2
+  89              		.loc 1 26 13 view .LVU7
+  90 0018 124A     		ldr	r2, .L15+4
+  91 001a 9369     		ldr	r3, [r2, #24]
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s 			page 3
+
+
+  92 001c 43F00403 		orr	r3, r3, #4
+  93 0020 9361     		str	r3, [r2, #24]
+  27:Core/Src/main.c ****             break;
+  94              		.loc 1 27 13 view .LVU8
+  95              	.L4:
+  28:Core/Src/main.c ****         case 1:
+  29:Core/Src/main.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS4);  // PE4
+  30:Core/Src/main.c ****             break;
+  31:Core/Src/main.c ****         case 2:
+  32:Core/Src/main.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS5);  // PE5
+  33:Core/Src/main.c ****             break;
+  34:Core/Src/main.c ****         case 3:
+  35:Core/Src/main.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS6);  // PE6
+  36:Core/Src/main.c ****             break;
+  37:Core/Src/main.c ****         case 4:
+  38:Core/Src/main.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS3);  // PE3
+  39:Core/Src/main.c ****             break;
+  40:Core/Src/main.c ****         case 5:
+  41:Core/Src/main.c ****             SET_BIT(GPIOF->BSRR, GPIO_BSRR_BS8);  // PF8
+  42:Core/Src/main.c ****             break;           
+  43:Core/Src/main.c ****     }
+  44:Core/Src/main.c **** }
+  96              		.loc 1 44 1 is_stmt 0 view .LVU9
+  97 0022 08BD     		pop	{r3, pc}
+  98              	.L11:
+  29:Core/Src/main.c ****             break;
+  99              		.loc 1 29 13 is_stmt 1 view .LVU10
+ 100 0024 0F4A     		ldr	r2, .L15+4
+ 101 0026 9369     		ldr	r3, [r2, #24]
+ 102 0028 43F01003 		orr	r3, r3, #16
+ 103 002c 9361     		str	r3, [r2, #24]
+  30:Core/Src/main.c ****         case 2:
+ 104              		.loc 1 30 13 view .LVU11
+ 105 002e F8E7     		b	.L4
+ 106              	.L10:
+  32:Core/Src/main.c ****             break;
+ 107              		.loc 1 32 13 view .LVU12
+ 108 0030 0C4A     		ldr	r2, .L15+4
+ 109 0032 9369     		ldr	r3, [r2, #24]
+ 110 0034 43F02003 		orr	r3, r3, #32
+ 111 0038 9361     		str	r3, [r2, #24]
+  33:Core/Src/main.c ****         case 3:
+ 112              		.loc 1 33 13 view .LVU13
+ 113 003a F2E7     		b	.L4
+ 114              	.L9:
+  35:Core/Src/main.c ****             break;
+ 115              		.loc 1 35 13 view .LVU14
+ 116 003c 094A     		ldr	r2, .L15+4
+ 117 003e 9369     		ldr	r3, [r2, #24]
+ 118 0040 43F04003 		orr	r3, r3, #64
+ 119 0044 9361     		str	r3, [r2, #24]
+  36:Core/Src/main.c ****         case 4:
+ 120              		.loc 1 36 13 view .LVU15
+ 121 0046 ECE7     		b	.L4
+ 122              	.L8:
+  38:Core/Src/main.c ****             break;
+ 123              		.loc 1 38 13 view .LVU16
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s 			page 4
+
+
+ 124 0048 064A     		ldr	r2, .L15+4
+ 125 004a 9369     		ldr	r3, [r2, #24]
+ 126 004c 43F00803 		orr	r3, r3, #8
+ 127 0050 9361     		str	r3, [r2, #24]
+  39:Core/Src/main.c ****         case 5:
+ 128              		.loc 1 39 13 view .LVU17
+ 129 0052 E6E7     		b	.L4
+ 130              	.L6:
+  41:Core/Src/main.c ****             break;           
+ 131              		.loc 1 41 13 view .LVU18
+ 132 0054 044A     		ldr	r2, .L15+8
+ 133 0056 9369     		ldr	r3, [r2, #24]
+ 134 0058 43F48073 		orr	r3, r3, #256
+ 135 005c 9361     		str	r3, [r2, #24]
+  42:Core/Src/main.c ****     }
+ 136              		.loc 1 42 13 view .LVU19
+ 137              		.loc 1 44 1 is_stmt 0 view .LVU20
+ 138 005e E0E7     		b	.L4
+ 139              	.L16:
+ 140              		.align	2
+ 141              	.L15:
+ 142 0060 00000000 		.word	current_led_indx
+ 143 0064 00100240 		.word	1073876992
+ 144 0068 00140240 		.word	1073878016
+ 145              		.cfi_endproc
+ 146              	.LFE131:
+ 148              		.section	.text.flickers,"ax",%progbits
+ 149              		.align	1
+ 150              		.global	flickers
+ 151              		.syntax unified
+ 152              		.thumb
+ 153              		.thumb_func
+ 155              	flickers:
+ 156              	.LFB132:
+  45:Core/Src/main.c **** 
+  46:Core/Src/main.c **** void flickers(void)
+  47:Core/Src/main.c **** {
+ 157              		.loc 1 47 1 is_stmt 1 view -0
+ 158              		.cfi_startproc
+ 159              		@ args = 0, pretend = 0, frame = 0
+ 160              		@ frame_needed = 0, uses_anonymous_args = 0
+ 161 0000 08B5     		push	{r3, lr}
+ 162              	.LCFI1:
+ 163              		.cfi_def_cfa_offset 8
+ 164              		.cfi_offset 3, -8
+ 165              		.cfi_offset 14, -4
+  48:Core/Src/main.c ****     if (led_tick < flik_list[flicker_freq] / 2)
+ 166              		.loc 1 48 5 view .LVU22
+ 167              		.loc 1 48 29 is_stmt 0 view .LVU23
+ 168 0002 0E4B     		ldr	r3, .L22
+ 169 0004 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 170 0006 0E4B     		ldr	r3, .L22+4
+ 171 0008 33F81220 		ldrh	r2, [r3, r2, lsl #1]
+ 172              		.loc 1 48 18 view .LVU24
+ 173 000c 0D4B     		ldr	r3, .L22+8
+ 174 000e 1B68     		ldr	r3, [r3]
+ 175              		.loc 1 48 8 view .LVU25
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s 			page 5
+
+
+ 176 0010 B3EB520F 		cmp	r3, r2, lsr #1
+ 177 0014 0ED2     		bcs	.L18
+  49:Core/Src/main.c ****     {
+  50:Core/Src/main.c ****         UpdateLEDs();
+ 178              		.loc 1 50 9 is_stmt 1 view .LVU26
+ 179 0016 FFF7FEFF 		bl	UpdateLEDs
+ 180              	.LVL1:
+ 181              	.L19:
+  51:Core/Src/main.c ****     }
+  52:Core/Src/main.c ****     else
+  53:Core/Src/main.c ****     {
+  54:Core/Src/main.c ****         OFF();
+  55:Core/Src/main.c ****     }
+  56:Core/Src/main.c **** 
+  57:Core/Src/main.c ****     if (led_tick >= flik_list[flicker_freq])
+ 182              		.loc 1 57 5 view .LVU27
+ 183              		.loc 1 57 30 is_stmt 0 view .LVU28
+ 184 001a 084B     		ldr	r3, .L22
+ 185 001c 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 186 001e 084B     		ldr	r3, .L22+4
+ 187 0020 33F81220 		ldrh	r2, [r3, r2, lsl #1]
+ 188              		.loc 1 57 18 view .LVU29
+ 189 0024 074B     		ldr	r3, .L22+8
+ 190 0026 1B68     		ldr	r3, [r3]
+ 191              		.loc 1 57 8 view .LVU30
+ 192 0028 9A42     		cmp	r2, r3
+ 193 002a 02D8     		bhi	.L17
+  58:Core/Src/main.c ****     {
+  59:Core/Src/main.c ****         led_tick = 0;
+ 194              		.loc 1 59 9 is_stmt 1 view .LVU31
+ 195              		.loc 1 59 18 is_stmt 0 view .LVU32
+ 196 002c 054B     		ldr	r3, .L22+8
+ 197 002e 0022     		movs	r2, #0
+ 198 0030 1A60     		str	r2, [r3]
+ 199              	.L17:
+  60:Core/Src/main.c ****     }
+  61:Core/Src/main.c **** }
+ 200              		.loc 1 61 1 view .LVU33
+ 201 0032 08BD     		pop	{r3, pc}
+ 202              	.L18:
+  54:Core/Src/main.c ****     }
+ 203              		.loc 1 54 9 is_stmt 1 view .LVU34
+ 204 0034 FFF7FEFF 		bl	OFF
+ 205              	.LVL2:
+ 206 0038 EFE7     		b	.L19
+ 207              	.L23:
+ 208 003a 00BF     		.align	2
+ 209              	.L22:
+ 210 003c 00000000 		.word	flicker_freq
+ 211 0040 00000000 		.word	flik_list
+ 212 0044 00000000 		.word	led_tick
+ 213              		.cfi_endproc
+ 214              	.LFE132:
+ 216              		.section	.text.changeFlickerFrequency,"ax",%progbits
+ 217              		.align	1
+ 218              		.global	changeFlickerFrequency
+ 219              		.syntax unified
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s 			page 6
+
+
+ 220              		.thumb
+ 221              		.thumb_func
+ 223              	changeFlickerFrequency:
+ 224              	.LFB133:
+  62:Core/Src/main.c **** 
+  63:Core/Src/main.c **** 
+  64:Core/Src/main.c **** void changeFlickerFrequency(void) 
+  65:Core/Src/main.c **** {
+ 225              		.loc 1 65 1 view -0
+ 226              		.cfi_startproc
+ 227              		@ args = 0, pretend = 0, frame = 0
+ 228              		@ frame_needed = 0, uses_anonymous_args = 0
+ 229              		@ link register save eliminated.
+  66:Core/Src/main.c ****     flicker_freq = (flicker_freq + 1) % 3;
+ 230              		.loc 1 66 5 view .LVU36
+ 231              		.loc 1 66 34 is_stmt 0 view .LVU37
+ 232 0000 0549     		ldr	r1, .L25
+ 233 0002 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
+ 234 0004 0132     		adds	r2, r2, #1
+ 235              		.loc 1 66 39 view .LVU38
+ 236 0006 054B     		ldr	r3, .L25+4
+ 237 0008 83FB0203 		smull	r0, r3, r3, r2
+ 238 000c 03EB4303 		add	r3, r3, r3, lsl #1
+ 239 0010 D31A     		subs	r3, r2, r3
+ 240              		.loc 1 66 18 view .LVU39
+ 241 0012 0B70     		strb	r3, [r1]
+  67:Core/Src/main.c **** }
+ 242              		.loc 1 67 1 view .LVU40
+ 243 0014 7047     		bx	lr
+ 244              	.L26:
+ 245 0016 00BF     		.align	2
+ 246              	.L25:
+ 247 0018 00000000 		.word	flicker_freq
+ 248 001c 56555555 		.word	1431655766
+ 249              		.cfi_endproc
+ 250              	.LFE133:
+ 252              		.section	.text.handleButton1,"ax",%progbits
+ 253              		.align	1
+ 254              		.global	handleButton1
+ 255              		.syntax unified
+ 256              		.thumb
+ 257              		.thumb_func
+ 259              	handleButton1:
+ 260              	.LFB134:
+  68:Core/Src/main.c **** 
+  69:Core/Src/main.c **** 
+  70:Core/Src/main.c **** void handleButton1(void)
+  71:Core/Src/main.c **** {
+ 261              		.loc 1 71 1 is_stmt 1 view -0
+ 262              		.cfi_startproc
+ 263              		@ args = 0, pretend = 0, frame = 0
+ 264              		@ frame_needed = 0, uses_anonymous_args = 0
+ 265              		@ link register save eliminated.
+  72:Core/Src/main.c ****     current_led_indx = (current_led_indx + 1) % 6;
+ 266              		.loc 1 72 5 view .LVU42
+ 267              		.loc 1 72 42 is_stmt 0 view .LVU43
+ 268 0000 0749     		ldr	r1, .L28
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s 			page 7
+
+
+ 269 0002 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
+ 270 0004 0132     		adds	r2, r2, #1
+ 271              		.loc 1 72 47 view .LVU44
+ 272 0006 074B     		ldr	r3, .L28+4
+ 273 0008 83FB0203 		smull	r0, r3, r3, r2
+ 274 000c 03EB4303 		add	r3, r3, r3, lsl #1
+ 275 0010 5800     		lsls	r0, r3, #1
+ 276 0012 131A     		subs	r3, r2, r0
+ 277              		.loc 1 72 22 view .LVU45
+ 278 0014 0B70     		strb	r3, [r1]
+  73:Core/Src/main.c ****     led_tick = 0;
+ 279              		.loc 1 73 5 is_stmt 1 view .LVU46
+ 280              		.loc 1 73 14 is_stmt 0 view .LVU47
+ 281 0016 044B     		ldr	r3, .L28+8
+ 282 0018 0022     		movs	r2, #0
+ 283 001a 1A60     		str	r2, [r3]
+  74:Core/Src/main.c **** }
+ 284              		.loc 1 74 1 view .LVU48
+ 285 001c 7047     		bx	lr
+ 286              	.L29:
+ 287 001e 00BF     		.align	2
+ 288              	.L28:
+ 289 0020 00000000 		.word	current_led_indx
+ 290 0024 ABAAAA2A 		.word	715827883
+ 291 0028 00000000 		.word	led_tick
+ 292              		.cfi_endproc
+ 293              	.LFE134:
+ 295              		.section	.text.main,"ax",%progbits
+ 296              		.align	1
+ 297              		.global	main
+ 298              		.syntax unified
+ 299              		.thumb
+ 300              		.thumb_func
+ 302              	main:
+ 303              	.LFB135:
+  75:Core/Src/main.c **** 
+  76:Core/Src/main.c **** int main(void)
+  77:Core/Src/main.c **** {
+ 304              		.loc 1 77 1 is_stmt 1 view -0
+ 305              		.cfi_startproc
+ 306              		@ Volatile: function does not return.
+ 307              		@ args = 0, pretend = 0, frame = 0
+ 308              		@ frame_needed = 0, uses_anonymous_args = 0
+ 309 0000 08B5     		push	{r3, lr}
+ 310              	.LCFI2:
+ 311              		.cfi_def_cfa_offset 8
+ 312              		.cfi_offset 3, -8
+ 313              		.cfi_offset 14, -4
+  78:Core/Src/main.c ****     GPIO_Ini();
+ 314              		.loc 1 78 5 view .LVU50
+ 315 0002 FFF7FEFF 		bl	GPIO_Ini
+ 316              	.LVL3:
+  79:Core/Src/main.c ****     RCC_Ini();
+ 317              		.loc 1 79 5 view .LVU51
+ 318 0006 FFF7FEFF 		bl	RCC_Ini
+ 319              	.LVL4:
+  80:Core/Src/main.c ****     EXTI_ITR_Ini();
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s 			page 8
+
+
+ 320              		.loc 1 80 5 view .LVU52
+ 321 000a FFF7FEFF 		bl	EXTI_ITR_Ini
+ 322              	.LVL5:
+  81:Core/Src/main.c ****     SysTick_Init();
+ 323              		.loc 1 81 5 view .LVU53
+ 324 000e FFF7FEFF 		bl	SysTick_Init
+ 325              	.LVL6:
+  82:Core/Src/main.c ****     
+  83:Core/Src/main.c ****     OFF();
+ 326              		.loc 1 83 5 view .LVU54
+ 327 0012 FFF7FEFF 		bl	OFF
+ 328              	.LVL7:
+ 329 0016 11E0     		b	.L31
+ 330              	.L37:
+  84:Core/Src/main.c ****     while (1)
+  85:Core/Src/main.c ****     {
+  86:Core/Src/main.c ****         
+  87:Core/Src/main.c ****         if (BtnCount > 0)
+  88:Core/Src/main.c ****         {
+  89:Core/Src/main.c ****             handleButton1();
+ 331              		.loc 1 89 13 view .LVU55
+ 332 0018 FFF7FEFF 		bl	handleButton1
+ 333              	.LVL8:
+  90:Core/Src/main.c ****             BtnCount = 0; 
+ 334              		.loc 1 90 13 view .LVU56
+ 335              		.loc 1 90 22 is_stmt 0 view .LVU57
+ 336 001c 0F4B     		ldr	r3, .L40
+ 337 001e 0022     		movs	r2, #0
+ 338 0020 1A70     		strb	r2, [r3]
+ 339 0022 0FE0     		b	.L32
+ 340              	.L38:
+  91:Core/Src/main.c ****         }
+  92:Core/Src/main.c ****         
+  93:Core/Src/main.c **** 
+  94:Core/Src/main.c ****         if (shortState)
+  95:Core/Src/main.c ****         {
+  96:Core/Src/main.c ****             changeFlickerFrequency();
+ 341              		.loc 1 96 13 is_stmt 1 view .LVU58
+ 342 0024 FFF7FEFF 		bl	changeFlickerFrequency
+ 343              	.LVL9:
+  97:Core/Src/main.c ****             shortState = 0;
+ 344              		.loc 1 97 13 view .LVU59
+ 345              		.loc 1 97 24 is_stmt 0 view .LVU60
+ 346 0028 0023     		movs	r3, #0
+ 347 002a 0D4A     		ldr	r2, .L40+4
+ 348 002c 1370     		strb	r3, [r2]
+  98:Core/Src/main.c ****             led_tick = 0; 
+ 349              		.loc 1 98 13 is_stmt 1 view .LVU61
+ 350              		.loc 1 98 22 is_stmt 0 view .LVU62
+ 351 002e 0D4A     		ldr	r2, .L40+8
+ 352 0030 1360     		str	r3, [r2]
+ 353 0032 0BE0     		b	.L33
+ 354              	.L39:
+  99:Core/Src/main.c ****         }
+ 100:Core/Src/main.c ****         
+ 101:Core/Src/main.c ****         if (mode) 
+ 102:Core/Src/main.c ****         {
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s 			page 9
+
+
+ 103:Core/Src/main.c ****             OFF();
+ 355              		.loc 1 103 13 is_stmt 1 view .LVU63
+ 356 0034 FFF7FEFF 		bl	OFF
+ 357              	.LVL10:
+ 104:Core/Src/main.c ****             flickers();
+ 358              		.loc 1 104 13 view .LVU64
+ 359 0038 FFF7FEFF 		bl	flickers
+ 360              	.LVL11:
+ 361              	.L31:
+  84:Core/Src/main.c ****     {
+ 362              		.loc 1 84 5 view .LVU65
+  87:Core/Src/main.c ****         {
+ 363              		.loc 1 87 9 view .LVU66
+  87:Core/Src/main.c ****         {
+ 364              		.loc 1 87 22 is_stmt 0 view .LVU67
+ 365 003c 074B     		ldr	r3, .L40
+ 366 003e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  87:Core/Src/main.c ****         {
+ 367              		.loc 1 87 12 view .LVU68
+ 368 0040 002B     		cmp	r3, #0
+ 369 0042 E9D1     		bne	.L37
+ 370              	.L32:
+  94:Core/Src/main.c ****         {
+ 371              		.loc 1 94 9 is_stmt 1 view .LVU69
+  94:Core/Src/main.c ****         {
+ 372              		.loc 1 94 13 is_stmt 0 view .LVU70
+ 373 0044 064B     		ldr	r3, .L40+4
+ 374 0046 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  94:Core/Src/main.c ****         {
+ 375              		.loc 1 94 12 view .LVU71
+ 376 0048 002B     		cmp	r3, #0
+ 377 004a EBD1     		bne	.L38
+ 378              	.L33:
+ 101:Core/Src/main.c ****         {
+ 379              		.loc 1 101 9 is_stmt 1 view .LVU72
+ 101:Core/Src/main.c ****         {
+ 380              		.loc 1 101 13 is_stmt 0 view .LVU73
+ 381 004c 064B     		ldr	r3, .L40+12
+ 382 004e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 101:Core/Src/main.c ****         {
+ 383              		.loc 1 101 12 view .LVU74
+ 384 0050 002B     		cmp	r3, #0
+ 385 0052 EFD1     		bne	.L39
+ 105:Core/Src/main.c ****         }
+ 106:Core/Src/main.c ****         else 
+ 107:Core/Src/main.c ****         {
+ 108:Core/Src/main.c ****             UpdateLEDs();
+ 386              		.loc 1 108 13 is_stmt 1 view .LVU75
+ 387 0054 FFF7FEFF 		bl	UpdateLEDs
+ 388              	.LVL12:
+ 389 0058 F0E7     		b	.L31
+ 390              	.L41:
+ 391 005a 00BF     		.align	2
+ 392              	.L40:
+ 393 005c 00000000 		.word	BtnCount
+ 394 0060 00000000 		.word	shortState
+ 395 0064 00000000 		.word	led_tick
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s 			page 10
+
+
+ 396 0068 00000000 		.word	mode
+ 397              		.cfi_endproc
+ 398              	.LFE135:
+ 400              		.global	flicker_freq
+ 401              		.section	.bss.flicker_freq,"aw",%nobits
+ 404              	flicker_freq:
+ 405 0000 00       		.space	1
+ 406              		.global	led_tick
+ 407              		.section	.bss.led_tick,"aw",%nobits
+ 408              		.align	2
+ 411              	led_tick:
+ 412 0000 00000000 		.space	4
+ 413              		.global	shortState
+ 414              		.section	.bss.shortState,"aw",%nobits
+ 417              	shortState:
+ 418 0000 00       		.space	1
+ 419              		.global	BtnCount
+ 420              		.section	.bss.BtnCount,"aw",%nobits
+ 423              	BtnCount:
+ 424 0000 00       		.space	1
+ 425              		.global	mode
+ 426              		.section	.bss.mode,"aw",%nobits
+ 429              	mode:
+ 430 0000 00       		.space	1
+ 431              		.global	current_led_indx
+ 432              		.section	.bss.current_led_indx,"aw",%nobits
+ 435              	current_led_indx:
+ 436 0000 00       		.space	1
+ 437              		.global	flik_list
+ 438              		.section	.data.flik_list,"aw"
+ 439              		.align	2
+ 442              	flik_list:
+ 443 0000 8813     		.short	5000
+ 444 0002 E204     		.short	1250
+ 445 0004 0103     		.short	769
+ 446              		.text
+ 447              	.Letext0:
+ 448              		.file 2 "C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_ty
+ 449              		.file 3 "C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
+ 450              		.file 4 "Core/Src/../Inc/../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
+ 451              		.file 5 "Core/Src/../Inc/../Inc/init.h"
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\Bebra\AppData\Local\Temp\ccFqNqsa.s:21     .text.main:00000000 $t
-C:\Users\Bebra\AppData\Local\Temp\ccFqNqsa.s:27     .text.main:00000000 main
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:21     .text.OFF:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:27     .text.OFF:00000000 OFF
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:49     .text.OFF:00000018 $d
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:54     .text.UpdateLEDs:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:60     .text.UpdateLEDs:00000000 UpdateLEDs
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:81     .text.UpdateLEDs:00000012 $d
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:87     .text.UpdateLEDs:00000018 $t
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:142    .text.UpdateLEDs:00000060 $d
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:435    .bss.current_led_indx:00000000 current_led_indx
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:149    .text.flickers:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:155    .text.flickers:00000000 flickers
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:210    .text.flickers:0000003c $d
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:404    .bss.flicker_freq:00000000 flicker_freq
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:442    .data.flik_list:00000000 flik_list
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:411    .bss.led_tick:00000000 led_tick
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:217    .text.changeFlickerFrequency:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:223    .text.changeFlickerFrequency:00000000 changeFlickerFrequency
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:247    .text.changeFlickerFrequency:00000018 $d
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:253    .text.handleButton1:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:259    .text.handleButton1:00000000 handleButton1
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:289    .text.handleButton1:00000020 $d
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:296    .text.main:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:302    .text.main:00000000 main
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:393    .text.main:0000005c $d
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:423    .bss.BtnCount:00000000 BtnCount
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:417    .bss.shortState:00000000 shortState
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:429    .bss.mode:00000000 mode
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:405    .bss.flicker_freq:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:408    .bss.led_tick:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:418    .bss.shortState:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:424    .bss.BtnCount:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:430    .bss.mode:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:436    .bss.current_led_indx:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccmdRtYd.s:439    .data.flik_list:00000000 $d
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+GPIO_Ini
+RCC_Ini
+EXTI_ITR_Ini
+SysTick_Init
