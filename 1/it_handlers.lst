@@ -1,0 +1,378 @@
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"it_handlers.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Core/Src/it_handlers.c"
+  20              		.section	.text.SysTick_Handler,"ax",%progbits
+  21              		.align	1
+  22              		.global	SysTick_Handler
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	SysTick_Handler:
+  28              	.LFB130:
+   1:Core/Src/it_handlers.c **** #include "../Inc/it_handlers.h"
+   2:Core/Src/it_handlers.c **** 
+   3:Core/Src/it_handlers.c **** extern uint32_t led_tick;
+   4:Core/Src/it_handlers.c **** extern uint8_t BtnCount;
+   5:Core/Src/it_handlers.c **** extern uint8_t shortState;
+   6:Core/Src/it_handlers.c **** extern uint8_t mode;
+   7:Core/Src/it_handlers.c **** extern uint8_t flicker_freq;
+   8:Core/Src/it_handlers.c **** 
+   9:Core/Src/it_handlers.c **** uint32_t ExternalInterruptTickCount = 0;
+  10:Core/Src/it_handlers.c **** uint8_t btn1State = 0;     // Состояние кнопки 1 (PC0)
+  11:Core/Src/it_handlers.c **** uint8_t btn2State = 0;     // Состояние кнопки 2 (PC13)  
+  12:Core/Src/it_handlers.c **** uint32_t button1PressTime = 0;
+  13:Core/Src/it_handlers.c **** uint32_t button2PressTime = 0;
+  14:Core/Src/it_handlers.c **** 
+  15:Core/Src/it_handlers.c **** void SysTick_Handler(void)
+  16:Core/Src/it_handlers.c **** {
+  29              		.loc 1 16 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  17:Core/Src/it_handlers.c ****     ExternalInterruptTickCount++;
+  34              		.loc 1 17 5 view .LVU1
+  35              		.loc 1 17 31 is_stmt 0 view .LVU2
+  36 0000 044A     		ldr	r2, .L2
+  37 0002 1368     		ldr	r3, [r2]
+  38 0004 0133     		adds	r3, r3, #1
+  39 0006 1360     		str	r3, [r2]
+  18:Core/Src/it_handlers.c ****     led_tick++; // Увеличиваем счетчик для мерцания
+  40              		.loc 1 18 5 is_stmt 1 view .LVU3
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s 			page 2
+
+
+  41              		.loc 1 18 13 is_stmt 0 view .LVU4
+  42 0008 034A     		ldr	r2, .L2+4
+  43 000a 1368     		ldr	r3, [r2]
+  44 000c 0133     		adds	r3, r3, #1
+  45 000e 1360     		str	r3, [r2]
+  19:Core/Src/it_handlers.c **** }
+  46              		.loc 1 19 1 view .LVU5
+  47 0010 7047     		bx	lr
+  48              	.L3:
+  49 0012 00BF     		.align	2
+  50              	.L2:
+  51 0014 00000000 		.word	ExternalInterruptTickCount
+  52 0018 00000000 		.word	led_tick
+  53              		.cfi_endproc
+  54              	.LFE130:
+  56              		.section	.text.EXTI0_IRQHandler,"ax",%progbits
+  57              		.align	1
+  58              		.global	EXTI0_IRQHandler
+  59              		.syntax unified
+  60              		.thumb
+  61              		.thumb_func
+  63              	EXTI0_IRQHandler:
+  64              	.LFB131:
+  20:Core/Src/it_handlers.c **** 
+  21:Core/Src/it_handlers.c **** void EXTI0_IRQHandler(void)
+  22:Core/Src/it_handlers.c **** {
+  65              		.loc 1 22 1 is_stmt 1 view -0
+  66              		.cfi_startproc
+  67              		@ args = 0, pretend = 0, frame = 0
+  68              		@ frame_needed = 0, uses_anonymous_args = 0
+  69              		@ link register save eliminated.
+  23:Core/Src/it_handlers.c ****     SET_BIT(EXTI->PR, EXTI_PR_PR0); // Сброс флага прерывания
+  70              		.loc 1 23 5 view .LVU7
+  71 0000 084A     		ldr	r2, .L6
+  72 0002 5369     		ldr	r3, [r2, #20]
+  73 0004 43F00103 		orr	r3, r3, #1
+  74 0008 5361     		str	r3, [r2, #20]
+  24:Core/Src/it_handlers.c ****     
+  25:Core/Src/it_handlers.c ****     if (ExternalInterruptTickCount >= DELAY_BUTTON_FILTER)
+  75              		.loc 1 25 5 view .LVU8
+  76              		.loc 1 25 36 is_stmt 0 view .LVU9
+  77 000a 074B     		ldr	r3, .L6+4
+  78 000c 1B68     		ldr	r3, [r3]
+  79              		.loc 1 25 8 view .LVU10
+  80 000e 632B     		cmp	r3, #99
+  81 0010 06D9     		bls	.L4
+  26:Core/Src/it_handlers.c ****     {
+  27:Core/Src/it_handlers.c ****         // Обработка кнопки 1 (PC0) - простое нажатие
+  28:Core/Src/it_handlers.c ****         BtnCount++;
+  82              		.loc 1 28 9 is_stmt 1 view .LVU11
+  83              		.loc 1 28 17 is_stmt 0 view .LVU12
+  84 0012 064A     		ldr	r2, .L6+8
+  85 0014 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  86 0016 0133     		adds	r3, r3, #1
+  87 0018 1370     		strb	r3, [r2]
+  29:Core/Src/it_handlers.c ****         ExternalInterruptTickCount = 0;
+  88              		.loc 1 29 9 is_stmt 1 view .LVU13
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s 			page 3
+
+
+  89              		.loc 1 29 36 is_stmt 0 view .LVU14
+  90 001a 034B     		ldr	r3, .L6+4
+  91 001c 0022     		movs	r2, #0
+  92 001e 1A60     		str	r2, [r3]
+  93              	.L4:
+  30:Core/Src/it_handlers.c ****     }
+  31:Core/Src/it_handlers.c **** }
+  94              		.loc 1 31 1 view .LVU15
+  95 0020 7047     		bx	lr
+  96              	.L7:
+  97 0022 00BF     		.align	2
+  98              	.L6:
+  99 0024 003C0140 		.word	1073822720
+ 100 0028 00000000 		.word	ExternalInterruptTickCount
+ 101 002c 00000000 		.word	BtnCount
+ 102              		.cfi_endproc
+ 103              	.LFE131:
+ 105              		.section	.text.EXTI15_10_IRQHandler,"ax",%progbits
+ 106              		.align	1
+ 107              		.global	EXTI15_10_IRQHandler
+ 108              		.syntax unified
+ 109              		.thumb
+ 110              		.thumb_func
+ 112              	EXTI15_10_IRQHandler:
+ 113              	.LFB132:
+  32:Core/Src/it_handlers.c **** 
+  33:Core/Src/it_handlers.c **** // Добавляем обработчик для кнопки 2 (PC13)
+  34:Core/Src/it_handlers.c **** void EXTI15_10_IRQHandler(void)
+  35:Core/Src/it_handlers.c **** {
+ 114              		.loc 1 35 1 is_stmt 1 view -0
+ 115              		.cfi_startproc
+ 116              		@ args = 0, pretend = 0, frame = 0
+ 117              		@ frame_needed = 0, uses_anonymous_args = 0
+ 118              		@ link register save eliminated.
+  36:Core/Src/it_handlers.c ****     if (READ_BIT(EXTI->PR, EXTI_PR_PR13)) 
+ 119              		.loc 1 36 5 view .LVU17
+ 120              		.loc 1 36 9 is_stmt 0 view .LVU18
+ 121 0000 1A4B     		ldr	r3, .L13
+ 122 0002 5B69     		ldr	r3, [r3, #20]
+ 123              		.loc 1 36 8 view .LVU19
+ 124 0004 13F4005F 		tst	r3, #8192
+ 125 0008 25D0     		beq	.L8
+  37:Core/Src/it_handlers.c ****     {
+  38:Core/Src/it_handlers.c ****         SET_BIT(EXTI->PR, EXTI_PR_PR13); // Сброс флага прерывания
+ 126              		.loc 1 38 9 is_stmt 1 view .LVU20
+ 127 000a 184A     		ldr	r2, .L13
+ 128 000c 5369     		ldr	r3, [r2, #20]
+ 129 000e 43F40053 		orr	r3, r3, #8192
+ 130 0012 5361     		str	r3, [r2, #20]
+  39:Core/Src/it_handlers.c ****         
+  40:Core/Src/it_handlers.c ****         if (ExternalInterruptTickCount >= DELAY_BUTTON_FILTER)
+ 131              		.loc 1 40 9 view .LVU21
+ 132              		.loc 1 40 40 is_stmt 0 view .LVU22
+ 133 0014 164B     		ldr	r3, .L13+4
+ 134 0016 1B68     		ldr	r3, [r3]
+ 135              		.loc 1 40 12 view .LVU23
+ 136 0018 632B     		cmp	r3, #99
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s 			page 4
+
+
+ 137 001a 1CD9     		bls	.L8
+  41:Core/Src/it_handlers.c ****         {
+  42:Core/Src/it_handlers.c ****             if (btn2State == 0)
+ 138              		.loc 1 42 13 is_stmt 1 view .LVU24
+ 139              		.loc 1 42 27 is_stmt 0 view .LVU25
+ 140 001c 154A     		ldr	r2, .L13+8
+ 141 001e 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 142              		.loc 1 42 16 view .LVU26
+ 143 0020 2AB9     		cbnz	r2, .L10
+  43:Core/Src/it_handlers.c ****             {
+  44:Core/Src/it_handlers.c ****                 // Первое нажатие - начинаем отсчет времени
+  45:Core/Src/it_handlers.c ****                 button2PressTime = ExternalInterruptTickCount;
+ 144              		.loc 1 45 17 is_stmt 1 view .LVU27
+ 145              		.loc 1 45 34 is_stmt 0 view .LVU28
+ 146 0022 154A     		ldr	r2, .L13+12
+ 147 0024 1360     		str	r3, [r2]
+  46:Core/Src/it_handlers.c ****                 btn2State = 1;
+ 148              		.loc 1 46 17 is_stmt 1 view .LVU29
+ 149              		.loc 1 46 27 is_stmt 0 view .LVU30
+ 150 0026 134B     		ldr	r3, .L13+8
+ 151 0028 0122     		movs	r2, #1
+ 152 002a 1A70     		strb	r2, [r3]
+ 153 002c 7047     		bx	lr
+ 154              	.L10:
+ 155              	.LBB2:
+  47:Core/Src/it_handlers.c ****             }
+  48:Core/Src/it_handlers.c ****             else
+  49:Core/Src/it_handlers.c ****             {
+  50:Core/Src/it_handlers.c ****                 // Отпускание кнопки - определяем тип нажатия
+  51:Core/Src/it_handlers.c ****                 uint32_t holdTime = ExternalInterruptTickCount - button2PressTime;
+ 156              		.loc 1 51 17 is_stmt 1 view .LVU31
+ 157              		.loc 1 51 64 is_stmt 0 view .LVU32
+ 158 002e 124A     		ldr	r2, .L13+12
+ 159 0030 1268     		ldr	r2, [r2]
+ 160              		.loc 1 51 26 view .LVU33
+ 161 0032 9B1A     		subs	r3, r3, r2
+ 162              	.LVL0:
+  52:Core/Src/it_handlers.c ****                 
+  53:Core/Src/it_handlers.c ****                 if (holdTime > 2000) 
+ 163              		.loc 1 53 17 is_stmt 1 view .LVU34
+ 164              		.loc 1 53 20 is_stmt 0 view .LVU35
+ 165 0034 B3F5FA6F 		cmp	r3, #2000
+ 166 0038 0ED9     		bls	.L11
+  54:Core/Src/it_handlers.c ****                 {
+  55:Core/Src/it_handlers.c ****                     // Удержание более 2 секунд - смена режима ме�
+  56:Core/Src/it_handlers.c ****                     mode = !mode;
+ 167              		.loc 1 56 21 is_stmt 1 view .LVU36
+ 168              		.loc 1 56 28 is_stmt 0 view .LVU37
+ 169 003a 104A     		ldr	r2, .L13+16
+ 170 003c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 171              	.LVL1:
+ 172              		.loc 1 56 28 view .LVU38
+ 173 003e B3FA83F3 		clz	r3, r3
+ 174 0042 5B09     		lsrs	r3, r3, #5
+ 175              		.loc 1 56 26 view .LVU39
+ 176 0044 1370     		strb	r3, [r2]
+  57:Core/Src/it_handlers.c ****                     led_tick = 0; // Сбрасываем счетчик при смене режи
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s 			page 5
+
+
+ 177              		.loc 1 57 21 is_stmt 1 view .LVU40
+ 178              		.loc 1 57 30 is_stmt 0 view .LVU41
+ 179 0046 0E4B     		ldr	r3, .L13+20
+ 180 0048 0022     		movs	r2, #0
+ 181 004a 1A60     		str	r2, [r3]
+ 182              	.L12:
+  58:Core/Src/it_handlers.c ****                 }
+  59:Core/Src/it_handlers.c ****                 else if (holdTime > 100 && holdTime <= 2000)
+  60:Core/Src/it_handlers.c ****                 {
+  61:Core/Src/it_handlers.c ****                     // Кратковременное нажатие - смена частоты м
+  62:Core/Src/it_handlers.c ****                     shortState = 1;
+  63:Core/Src/it_handlers.c ****                 }
+  64:Core/Src/it_handlers.c ****                 
+  65:Core/Src/it_handlers.c ****                 btn2State = 0;
+ 183              		.loc 1 65 17 is_stmt 1 view .LVU42
+ 184              		.loc 1 65 27 is_stmt 0 view .LVU43
+ 185 004c 0023     		movs	r3, #0
+ 186 004e 094A     		ldr	r2, .L13+8
+ 187 0050 1370     		strb	r3, [r2]
+  66:Core/Src/it_handlers.c ****                 ExternalInterruptTickCount = 0;
+ 188              		.loc 1 66 17 is_stmt 1 view .LVU44
+ 189              		.loc 1 66 44 is_stmt 0 view .LVU45
+ 190 0052 074A     		ldr	r2, .L13+4
+ 191              	.LVL2:
+ 192              		.loc 1 66 44 view .LVU46
+ 193 0054 1360     		str	r3, [r2]
+ 194              	.LVL3:
+ 195              	.L8:
+ 196              		.loc 1 66 44 view .LVU47
+ 197              	.LBE2:
+  67:Core/Src/it_handlers.c ****             }
+  68:Core/Src/it_handlers.c ****         }
+  69:Core/Src/it_handlers.c ****     }
+  70:Core/Src/it_handlers.c **** }...
+ 198              		.loc 1 70 1 view .LVU48
+ 199 0056 7047     		bx	lr
+ 200              	.LVL4:
+ 201              	.L11:
+ 202              	.LBB3:
+  59:Core/Src/it_handlers.c ****                 else if (holdTime > 100 && holdTime <= 2000)
+ 203              		.loc 1 59 22 is_stmt 1 view .LVU49
+  59:Core/Src/it_handlers.c ****                 else if (holdTime > 100 && holdTime <= 2000)
+ 204              		.loc 1 59 41 is_stmt 0 view .LVU50
+ 205 0058 653B     		subs	r3, r3, #101
+ 206              	.LVL5:
+  59:Core/Src/it_handlers.c ****                 else if (holdTime > 100 && holdTime <= 2000)
+ 207              		.loc 1 59 25 view .LVU51
+ 208 005a 40F26B72 		movw	r2, #1899
+ 209 005e 9342     		cmp	r3, r2
+ 210 0060 F4D8     		bhi	.L12
+  62:Core/Src/it_handlers.c ****                     shortState = 1;
+ 211              		.loc 1 62 21 is_stmt 1 view .LVU52
+  62:Core/Src/it_handlers.c ****                     shortState = 1;
+ 212              		.loc 1 62 32 is_stmt 0 view .LVU53
+ 213 0062 084B     		ldr	r3, .L13+24
+ 214              	.LVL6:
+  62:Core/Src/it_handlers.c ****                     shortState = 1;
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s 			page 6
+
+
+ 215              		.loc 1 62 32 view .LVU54
+ 216 0064 0122     		movs	r2, #1
+ 217 0066 1A70     		strb	r2, [r3]
+ 218 0068 F0E7     		b	.L12
+ 219              	.L14:
+ 220 006a 00BF     		.align	2
+ 221              	.L13:
+ 222 006c 003C0140 		.word	1073822720
+ 223 0070 00000000 		.word	ExternalInterruptTickCount
+ 224 0074 00000000 		.word	btn2State
+ 225 0078 00000000 		.word	button2PressTime
+ 226 007c 00000000 		.word	mode
+ 227 0080 00000000 		.word	led_tick
+ 228 0084 00000000 		.word	shortState
+ 229              	.LBE3:
+ 230              		.cfi_endproc
+ 231              	.LFE132:
+ 233              		.global	button2PressTime
+ 234              		.section	.bss.button2PressTime,"aw",%nobits
+ 235              		.align	2
+ 238              	button2PressTime:
+ 239 0000 00000000 		.space	4
+ 240              		.global	button1PressTime
+ 241              		.section	.bss.button1PressTime,"aw",%nobits
+ 242              		.align	2
+ 245              	button1PressTime:
+ 246 0000 00000000 		.space	4
+ 247              		.global	btn2State
+ 248              		.section	.bss.btn2State,"aw",%nobits
+ 251              	btn2State:
+ 252 0000 00       		.space	1
+ 253              		.global	btn1State
+ 254              		.section	.bss.btn1State,"aw",%nobits
+ 257              	btn1State:
+ 258 0000 00       		.space	1
+ 259              		.global	ExternalInterruptTickCount
+ 260              		.section	.bss.ExternalInterruptTickCount,"aw",%nobits
+ 261              		.align	2
+ 264              	ExternalInterruptTickCount:
+ 265 0000 00000000 		.space	4
+ 266              		.text
+ 267              	.Letext0:
+ 268              		.file 2 "C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_ty
+ 269              		.file 3 "C:/Tools/GCC/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
+ 270              		.file 4 "Core/Src/../Inc/../Inc/../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
+ARM GAS  C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 it_handlers.c
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:21     .text.SysTick_Handler:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:27     .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:51     .text.SysTick_Handler:00000014 $d
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:264    .bss.ExternalInterruptTickCount:00000000 ExternalInterruptTickCount
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:57     .text.EXTI0_IRQHandler:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:63     .text.EXTI0_IRQHandler:00000000 EXTI0_IRQHandler
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:99     .text.EXTI0_IRQHandler:00000024 $d
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:106    .text.EXTI15_10_IRQHandler:00000000 $t
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:112    .text.EXTI15_10_IRQHandler:00000000 EXTI15_10_IRQHandler
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:222    .text.EXTI15_10_IRQHandler:0000006c $d
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:251    .bss.btn2State:00000000 btn2State
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:238    .bss.button2PressTime:00000000 button2PressTime
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:235    .bss.button2PressTime:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:245    .bss.button1PressTime:00000000 button1PressTime
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:242    .bss.button1PressTime:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:252    .bss.btn2State:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:257    .bss.btn1State:00000000 btn1State
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:258    .bss.btn1State:00000000 $d
+C:\Users\Bebra\AppData\Local\Temp\ccinjdOf.s:261    .bss.ExternalInterruptTickCount:00000000 $d
+
+UNDEFINED SYMBOLS
+led_tick
+BtnCount
+mode
+shortState
