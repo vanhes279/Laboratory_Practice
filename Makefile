@@ -13,7 +13,7 @@
 ######################################
 # target
 ######################################
-TARGET = LABORATORY_PRACTICE
+TARGET = LABORATORY_PRACTICE-2
 
 
 ######################################
@@ -38,6 +38,7 @@ BUILD_DIR = build
 C_SOURCES =  \
 CMSIS/Devices/STM32F4xx/Src/system_stm32f4xx.c \
 Core/Src/main.c \
+
 
 
 # ASM sources
