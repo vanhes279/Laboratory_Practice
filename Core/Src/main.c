@@ -1,7 +1,7 @@
 #include "../Inc/init.h"
 #include "../Inc/it_handlers.h"
 
-
+//var1
 uint16_t flik_list[3] = {5000, 1250, 769}; 
 uint8_t current_led_indx = 0;       //текущий светодиод     
 uint8_t mode = 0;                   //режим свечения    
