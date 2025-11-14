@@ -100,7 +100,7 @@ int main(void)
        
         // дополнительное задание
         /*
-         
+         if (BIT_READ(GPIOC_IDR, GPIO_PIN_13))
        {
             timerbutton1++;
             flag1 = 1;
