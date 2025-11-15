@@ -9,9 +9,6 @@ extern uint32_t led_tick;
 extern uint8_t shortState;
 uint32_t button2PressTime = 0;
 uint32_t ExternalInterruptTickCount = 0;
-uint32_t last_button1_time_pressed = 0;
-uint32_t last_button2_time_pressed = 0;
-uint8_t button1_long_press_triggered = 0;
 uint8_t button2_long_press_triggered = 0;
 
 void EXTI0_IRQHandler(void)

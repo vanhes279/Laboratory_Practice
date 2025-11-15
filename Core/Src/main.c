@@ -23,22 +23,22 @@ void UpdateLEDs(void)
     switch (current_led_indx) 
     {
         case 0:
-            SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS2);  // PE2
+            SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS2);  // вклPE2
             break;
         case 1:
-            SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS4);  // PE4
+            SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS4);  // вклPE4
             break;
         case 2:
-            SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS5);  // PE5
+            SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS5);  // вклPE5
             break;
         case 3:
-            SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS6);  // PE6
+            SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS6);  // вклPE6
             break;
         case 4:
-            SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS3);  // PE3
+            SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS3);  // вклPE3
             break;
         case 5:
-            SET_BIT(GPIOF->BSRR, GPIO_BSRR_BS8);  // PF8
+            SET_BIT(GPIOF->BSRR, GPIO_BSRR_BS8);  // вклPF8
             break;           
     }
 }
