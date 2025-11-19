@@ -79,18 +79,16 @@ int main(void)
     RCC_Ini();
     EXTI_ITR_Ini();
     SysTick_Init();
-    
     OFF();
     while (1)
     {
-        
         if (BtnCount)
         {
             handleButton1();
             BtnCount = 0; 
         }
-        
 
+        
         if (shortState)
         {
             changeFlickerFrequency();

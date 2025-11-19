@@ -21,6 +21,7 @@ void EXTI0_IRQHandler(void)
     }
 }
 
+
 void EXTI3_IRQHandler(void)
 {
     if (READ_BIT(EXTI->PR, EXTI_PR_PR3)) 
