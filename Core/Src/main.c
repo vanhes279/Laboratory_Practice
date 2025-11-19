@@ -1,5 +1,4 @@
 #include "../Inc/init.h"
-#include "../Src/it_handlers.c"
 #include "../Src/init.c"
 
 
@@ -22,7 +21,7 @@ static uint32_t avtodelay = frequencies[1];
     {
         SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR0 |GPIO_BSRR_BR7 | GPIO_BSRR_BR14 );
         
-    for (uint8_t i = 0; i < led_count; i++) 
+    for (uint8_t i = 0; i <= led_count; i++) 
         {
         uint8_t led_index = ((current_led_indx + i) % 3);
         switch (led_index) 
@@ -60,21 +59,22 @@ static uint32_t avtodelay = frequencies[1];
         }
             */
 int main(void)
-{
-   
+{ 
  GPIO_init_led_pb7_blue ();
  GPIO_init_led_pb14_red ();
  GPIO_init_led_pb0_green ();
  GPIO_button_input();
-        while (1)
+    while (1)
     {
        if (BIT_READ(GPIOC_IDR, GPIO_PIN_8))
        {
         flag1 = 1;
         current_led_indx = (current_led_indx + 1) % 3;
-        if(led_count == 2){
+        if(led_count == 2)
+        {
             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR0 |GPIO_BSRR_BR7 | GPIO_BSRR_BR14 );
-            for(volatile uint32_t i = 0; i < 100000; i++){}}
+            for(volatile uint32_t i = 0; i < 100000; i++){}
+        }
         UpdateLEDs();
         for(volatile uint32_t i = 0; i < 1000000; i++);
        }
@@ -86,10 +86,7 @@ int main(void)
        {
         flag2 = 1;
         led_count = ((led_count+1))%3;
-       
-    
         UpdateLEDs();
-    
        for(volatile uint32_t i = 0; i < 1000000; i++);
        }
        else
