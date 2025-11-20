@@ -89,7 +89,7 @@ void EXTI_ITR_Ini(void)
     SET_BIT(EXTI->RTSR, EXTI_RTSR_TR0);                                               //Настройка детектирования нарастающего фронта 0 линии
     SET_BIT(EXTI->FTSR, EXTI_FTSR_TR0);                                               //Настройка детектирования спадающего фронта 0 линии
     
-// Настройка EXTI13 на линии PC3 (кнопка 2)
+// Настройка EXTI3 на линии PC3 (кнопка 2)
     MODIFY_REG(SYSCFG->EXTICR[0], SYSCFG_EXTICR1_EXTI3_Msk, SYSCFG_EXTICR1_EXTI3_PC); //Настройка мультиплексора на вывод линии прерывания EXTI3 на PC3
     SET_BIT(EXTI->IMR, EXTI_IMR_MR3);                                                 //Настройка маскирования 3 линии
     SET_BIT(EXTI->RTSR, EXTI_RTSR_TR3);                                               //Настройка детектирования нарастающего фронта 3 линии
@@ -112,6 +112,6 @@ void SysTick_Init(void)
     SET_BIT(SysTick->CTRL, SysTick_CTRL_TICKINT_Msk);                                     //Разрешаем прерывание по системному таймеру
     SET_BIT(SysTick->CTRL, SysTick_CTRL_CLKSOURCE_Msk);                                   //Источник тактирования будет идти из AHB без деления
     MODIFY_REG(SysTick->LOAD, SysTick_LOAD_RELOAD_Msk,179999 << SysTick_LOAD_RELOAD_Pos); //Будет тикать с частотой 1 кГц и вызывать прерывания
-    MODIFY_REG(SysTick->VAL, SysTick_VAL_CURRENT_Msk,179999 << SysTick_VAL_CURRENT_Pos);       //Начнём считать со значения 0
+    MODIFY_REG(SysTick->VAL, SysTick_VAL_CURRENT_Msk,179999 << SysTick_VAL_CURRENT_Pos);  //Начнём считать со значения 179999
     SET_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk);                                      //Включим счётчик
 }
